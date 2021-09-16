@@ -1,0 +1,8 @@
+-- inoremap <silent><expr> <C-Space> compe#complete()
+-- inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+-- inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+-- inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+-- inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+H.keymap('i', '<C-space>', 'compe#complete()', {silent = true, expr = true, noremap = true})
+H.keymap('i', '<cr>', 'compe#confirm(\'<CR>\')', {silent = true, expr = true})
+H.keymap('i', '<c-e>', 'compe#close(\'<C-e>\')', {silent = true, expr = true})
