@@ -11,3 +11,11 @@ Acquiring a new computer is all fun and games until you can't use those same too
 had previously...
 
 Hence: my dotfiles. This project aims to bootstrap your configuration through a single command.
+
+## How to use
+
+Simply run on macos
+
+```bash
+curl -L https://raw.githubusercontent.com/olgam4/dotfiles/macos/bootstrap.sh | bash
+```

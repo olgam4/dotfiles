@@ -1,0 +1,16 @@
+[alias]
+	co = checkout
+	can = commit --amend --no-edit
+	cm = commit -m
+	aa = add -A
+	pf = push --force
+	puoh = push -u origin HEAD
+	then = "!if git diff-index --quiet HEAD --; then git rebase --skip; else git rebase --continue; fi"
+	authe = commit --amend --author=\"Olivier Gamache <olivier.gamache@elapsetech.com>\" --no-edit
+	authp = commit --amend --author=\"Olivier Gamache <olivier.gamache.3@ulaval.ca>\" --no-edit
+	authq = commit --amend --author=\"Olivier Gamache <olivier@glo.quebec>\" --no-edit
+	rebase-root = rebase -i --root
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
