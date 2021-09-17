@@ -1,0 +1,11 @@
+name: Bootstrap a mac
+on: push
+jobs:
+  Bootstrap:
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@master
+      - name: from nothing
+        run: |
+          chmod -R +x macos/
+          ./macos/bootstrap.sh -l

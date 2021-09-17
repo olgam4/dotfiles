@@ -87,6 +87,9 @@ else
   spinner "git pull" "🚀 Reloading dotfiles..."
 fi
 
+# Install brew
+./macos/install/brew.sh
+
 e_header "Setuping nvim..."
 symlink nvim
 e_success "Nvim: done!"
