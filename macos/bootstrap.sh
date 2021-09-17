@@ -64,7 +64,7 @@ function spinner() {
 
 function symlink() {
   local config="${1}"
-  ln -s $DOTFILES/$config ~/.config/
+  ln -sf $DOTFILES/$config ~/.config/
 }
 
 
@@ -81,6 +81,10 @@ if [[ ! -d $DOTFILES ]]; then
     spinner "git clone git@github.com:$GITHUB_REPOSITORY.git $DOTFILES" "Loading dotfiles..."
   fi
   cd $DOTFILES
+else
+  e_header "Updating..."
+  cd $DOTFILES
+  spinner "git pull" "Reloading dotfiles.."
 fi
 
 e_header "Setuping nvim..."
