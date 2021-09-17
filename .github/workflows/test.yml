@@ -8,4 +8,4 @@ jobs:
       - name: from nothing
         run: |
           chmod -R +x macos/
-          ./macos/bootstrap.sh -l
+          chmod -R +x bin/

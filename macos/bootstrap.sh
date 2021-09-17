@@ -87,6 +87,9 @@ else
   spinner "git pull" "🚀 Reloading dotfiles..."
 fi
 
+echo "Giving power to dotfiles..."
+chmod -R +x $DOTFILES/bin $DOTFILES/macos
+
 # Install brew
 ./macos/install/brew.sh
 
