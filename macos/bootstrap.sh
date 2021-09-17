@@ -1,6 +1,7 @@
 #!/bin/bash
 
 declare -r GITHUB_REPOSITORY="olgam4/dotfiles"
+export DOTFILES=~/.dotfiles
 
 echo 'Dotfiles - Olivier Gamache'
 
@@ -8,6 +9,11 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 
 Usage: $(basename "$0")
 
+  get some help
+    -h --help     see this help-page
+
+  run locally
+    -l --local    use this file instead of github's
 
 See the README for documentation.
 https://github.com/$GITHUB_REPOSITORY
@@ -16,7 +22,6 @@ Copyright © 2021 Olivier Gamache
 HELP
 exit; fi
 
-export DOTFILES=~/.dotfiles
 
 ###############################
 #                             #
@@ -59,7 +64,7 @@ function spinner() {
 
 function symlink() {
   local config="${1}"
-  ln -s $(pwd)/$config ~/.config/
+  ln -s $DOTFILES/$config ~/.config/
 }
 
 
@@ -67,7 +72,14 @@ function symlink() {
 
 # Initialize
 if [[ ! -d $DOTFILES ]]; then
-  spinner "git clone git@github.com:$GITHUB_REPOSITORY.git $DOTFILES" "Loading dotfiles..."
+  if [[ "$1" == "-l" || "$1" == "--local" ]]; then
+    e_arrow "Running locally"
+    mkdir $DOTFILES
+    cp -a . $DOTFILES
+    echo "$DOTFILES"
+  else
+    spinner "git clone git@github.com:$GITHUB_REPOSITORY.git $DOTFILES" "Loading dotfiles..."
+  fi
   cd $DOTFILES
 fi
 
@@ -79,11 +91,11 @@ e_header "Setting up git..."
 symlink git
 echo -n "What is your name? "
 read name
-#git config --global user.name "$name"
+git config --global user.name "$name"
 
 echo -n "What is your email? "
 read email
-#git config --global user.email "$email"
+git config --global user.email "$email"
 e_success "Git: done!"
 
 e_header "Setuping karabiner..."
