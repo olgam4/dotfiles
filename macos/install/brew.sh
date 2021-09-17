@@ -19,6 +19,5 @@ apps=(
 
 for app in "${apps[@]}"; do
   ./bin/spinner "brew install ${app}" "brewing ${app}"
-  echo ""
 done
 
