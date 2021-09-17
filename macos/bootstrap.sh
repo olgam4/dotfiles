@@ -78,13 +78,13 @@ if [[ ! -d $DOTFILES ]]; then
     cp -a . $DOTFILES
     echo "$DOTFILES"
   else
-    spinner "git clone git@github.com:$GITHUB_REPOSITORY.git $DOTFILES" "Loading dotfiles..."
+    spinner "git clone git@github.com:$GITHUB_REPOSITORY.git $DOTFILES" "🚀 Loading dotfiles..."
   fi
   cd $DOTFILES
 else
   e_header "Updating..."
   cd $DOTFILES
-  spinner "git pull" "Reloading dotfiles.."
+  spinner "git pull" "🚀 Reloading dotfiles..."
 fi
 
 e_header "Setuping nvim..."
