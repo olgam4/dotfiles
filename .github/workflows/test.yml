@@ -8,4 +8,8 @@ jobs:
       - name: from nothing
         run: |
           chmod -R +x macos/
-          chmod -R +x bin/
+          ./macos/bootstrap.sh
+      - name: test
+        run: |
+          chmod -R +x test/
+          ./test/brew.sh
