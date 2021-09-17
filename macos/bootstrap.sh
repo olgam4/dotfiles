@@ -47,12 +47,12 @@ function spinner() {
     while true; do
       for frame in ${spinnerFrames[@]}; do
         frameRef="${spinnerRef}[${frame}]"
-        echo "${label}${!frameRef}"
-        tput cuu1 tput el
+        printf "${label}${!frameRef}"
+        printf "\033[K"
+        printf "\033[G"
         sleep 0.05
       done
     done
-    echo -e "\r"
   }
 
   spinnerRun &
@@ -60,6 +60,9 @@ function spinner() {
   ${action} 1>/dev/null 2>/dev/null
   kill "${spinnerPid}"
   wait "${spinnerPid}" 2>/dev/null
+  printf "\033[K"
+  printf "\033[G"
+  echo "${label}✓"
 }
 
 function symlink() {
