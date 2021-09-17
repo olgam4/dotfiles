@@ -17,5 +17,5 @@ Hence: my dotfiles. This project aims to bootstrap your configuration through a 
 Simply run on macos
 
 ```bash
-curl https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bootstrap.sh > tmp.sh; bash tmp.sh
+curl -s https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bootstrap.sh | bash -s
 ```
