@@ -93,13 +93,18 @@ e_success "Nvim: done!"
 
 e_header "Setting up git..."
 symlink git
-echo -n "What is your name? "
-read name
-git config --global user.name "$name"
+if [[ ! $(git config --global user.name) ]]; then
+  echo -n "What is your name? "
+  read name
+  git config --global user.name "$name"
+fi
 
-echo -n "What is your email? "
-read email
-git config --global user.email "$email"
+if [[ ! $(git config --global user.email) ]]; then
+  echo -n "What is your email? "
+  read email
+  git config --global user.email "$email"
+fi
+
 e_success "Git: done!"
 
 e_header "Setuping karabiner..."
