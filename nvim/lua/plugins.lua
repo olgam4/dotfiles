@@ -24,7 +24,16 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use 'kyazdani42/nvim-tree.lua'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function() require'nvim-tree'.setup {
+            open_on_setup = true,
+            update_focused_file = {
+                enable = true,
+            }
+        } end
+    }
 
     use 'kyazdani42/nvim-web-devicons'
 
@@ -100,6 +109,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-commentary'
+    use 'tpope/vim-projectionist'
 
     -- ThePrimeagen
     use {

@@ -103,14 +103,22 @@ e_success "Nvim: done!"
 e_header "Setting up git..."
 symlink git
 if [[ ! $(git config --global user.name) ]]; then
-  echo -n "What is your name? "
-  read name
+  if [[ $GIT_AUTH_NAME ]]; then
+    declare -r name=$GIT_AUTH_NAME
+  else
+    echo -n "What is your name? "
+    read name
+  fi
   git config --global user.name "$name"
 fi
 
 if [[ ! $(git config --global user.email) ]]; then
-  echo -n "What is your email? "
-  read email
+  if [[ $GIT_AUTH_EMAIL ]]; then
+    declare -r email=$GIT_AUTH_EMAIL
+  else
+    echo -n "What is your email? "
+    read email
+  fi
   git config --global user.email "$email"
 fi
 

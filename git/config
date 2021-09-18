@@ -14,3 +14,6 @@
 	editor = nvim
 [init]
 	defaultBranch = main
+[user]
+	name = Olivier Gamache
+	email = olivier.gamache@.elapsetech.com

@@ -14,9 +14,15 @@ Hence: my dotfiles. This project aims to bootstrap your configuration through a 
 
 ## How to use
 
+### Prerequesites
+
+* Signin to AppStore
+
 Simply run on macos
 
 ```bash
+export GIT_AUTH_NAME="Olivier Gamache"
+export GIT_AUTH_EMAIL="olivier.gamache@.elapsetech.com"
 bash <(curl -s https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bootstrap.sh)
 ```
 
@@ -26,11 +32,9 @@ bash <(curl -s https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bo
 
 - [x] Automate git configuration
 
-- [x] Automate karabiner configuration
+- [ ] Allow git tokens to be passed with VARs
 
 - [x] Automate iterm2 configuration
-
-- [x] Allow update
 
 - [ ] Automate `xcode-select --install`
 
@@ -38,9 +42,15 @@ bash <(curl -s https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bo
 
 - [ ] Add mas
 
+- [ ] Automate installation of FiraCode
+
+- [ ] Automate BetterSnapTool with mas
+
 - [ ] Automate node/npm installation
 
-- [ ] Automate karabiner installation
+- [ ] Automate oh-my-zsh installation and setup
+
+- [ ] Automate karabiner installation and setup
 
 - [ ] Automate lua installation
 
@@ -48,4 +58,8 @@ bash <(curl -s https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bo
 
 - [ ] Automate java installation
 
-- [x] Find and automate terminal installation
+- [x] Find and automate terminal installation -> Now using iTerm2
+
+- [ ] Add simple bin to add `dotfiles` commands
+
+- [ ] Allow update
