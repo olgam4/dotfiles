@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
 
     use 'andweeb/presence.nvim'
 
-    use 'unblevable/quick-scope'
+   use 'unblevable/quick-scope'
 
     use {
         'norcalli/nvim-colorizer.lua',
@@ -146,10 +146,14 @@ return require('packer').startup(function(use)
     -- Devicons, also install https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode/Regular
     use 'ryanoasis/vim-devicons'
     use 'megantiu/true.vim'
+    use 'Rigellute/shades-of-purple.vim'
+    use {
+      'pineapplegiant/spaceduck',
+      branch = 'main'
+    }
     use {
         'glepnir/galaxyline.nvim',
         branch = 'main',
-        config = function() require('plugins/galaxyline') end
     }
     use 'luochen1990/rainbow'
     use {

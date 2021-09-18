@@ -11,13 +11,22 @@ fi
 echo "Homebrew is installed! 🎉"
 echo ""
 
-apps=(
+taps=(
   mas
+  zsh
   python
   nvim
 )
 
-for app in "${apps[@]}"; do
+casks=(
+  iterm2
+)
+
+for app in "${taps[@]}"; do
+  ./bin/spinner "brew install ${app}" "taping into ${app}"
+done
+
+for app in "${casks[@]}"; do
   ./bin/spinner "brew install ${app}" "brewing ${app}"
 done
 

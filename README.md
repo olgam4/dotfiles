@@ -22,30 +22,30 @@ bash <(curl -s https://raw.githubusercontent.com/olgam4/dotfiles/master/macos/bo
 
 ## Roadmap
 
-[x] Automate nvim configuration
+- [x] Automate nvim configuration
 
-[x] Automate git configuration
+- [x] Automate git configuration
 
-[x] Automate karabiner configuration
+- [x] Automate karabiner configuration
 
-[x] Automate iterm2 configuration
+- [x] Automate iterm2 configuration
 
-[x] Allow update
+- [x] Allow update
 
-[ ] Automate xcode-select --install
+- [ ] Automate `xcode-select --install`
 
-[ ] Automate homebrew installation
+- [x] Automate homebrew installation
 
-[ ] Add mas
+- [ ] Add mas
 
-[ ] Automate node/npm installation
+- [ ] Automate node/npm installation
 
-[ ] Automate karabiner installation
+- [ ] Automate karabiner installation
 
-[ ] Automate lua installation
+- [ ] Automate lua installation
 
-[ ] Automate python installation
+- [x] Automate python installation
 
-[ ] Automate java installation
+- [ ] Automate java installation
 
-[ ] Find and automate terminal installation
+- [x] Find and automate terminal installation

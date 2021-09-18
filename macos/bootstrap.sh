@@ -121,6 +121,8 @@ symlink karabiner
 e_success "Karabiner: done!"
 
 e_header "Setuping iterm2..."
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string $DOTFILES/iterm2
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 symlink iterm2
 e_success "iterm2: done!"
 

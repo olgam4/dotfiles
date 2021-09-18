@@ -55,6 +55,8 @@ H.keymap('i', ')', ')<c-g>u')
 H.keymap('n', 'tt', '<cmd>lua require\'shade\'.toggle()<cr><cmd>tab split<cr>')
 H.keymap('n', 'tc', '<cmd>tabc<cr><cmd>lua require\'shade\'.toggle()<cr>')
 
+H.keymap('n', '<leader>lgl', '<cmd>lua require(\'galaxyline\').load_galaxyline()<cr>')
+
 require('keymappings/ls')
 require('keymappings/neovide')
 
