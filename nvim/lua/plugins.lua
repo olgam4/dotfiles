@@ -1,181 +1,130 @@
-local install_path = H.fn.stdpath('data') ..
-                         '/site/pack/packer/start/packer.nvim'
-
+local install_path = H.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if H.fn.empty(H.fn.glob(install_path)) > 0 then
-    H.fn.system({
-        'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
-        install_path
-    })
-    H.execute 'packadd packer.nvim'
+  packer_bootstrap = H.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-H.cmd [[packadd packer.nvim]]
--- autocompile on save
-H.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]]
+H.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]]
 
--- TODO: move to a file
-H.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+H.cmd [[
+  let g:coq_settings = { 'auto_start': 'shut-up' }
+]]
 
--- TODO: use better setups and uniformize
--- TODO: organize better
--- TODO: lazy load
--- TODO: autoinstall on Reload
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+return require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
 
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require'nvim-tree'.setup {
-            open_on_setup = true,
-            update_focused_file = {
-                enable = true,
-            }
-        } end
-    }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require'nvim-tree'.setup {
+      open_on_setup = true,
+      update_focused_file = {
+        enable = true,
+      }
+    } end
+  }
 
-    use 'kyazdani42/nvim-web-devicons'
+  use 'unblevable/quick-scope'
 
-    use 'andweeb/presence.nvim'
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function() require('colorizer').setup() end
+  }
 
-   use 'unblevable/quick-scope'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
-    use {
-        'norcalli/nvim-colorizer.lua',
-        run = function() require('plugins/colorizer').setup() end
-    }
+  use 'dbeniamine/cheat.sh-vim'
 
-    use 'wfxr/minimap.vim'
+  use {'mg979/vim-visual-multi', branch = 'master'}
 
-    use 'dbeniamine/cheat.sh-vim'
+  use {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function() require('todo-comments').setup {} end
+  }
 
-    use {
-        'corani/neuron.nvim', -- TODO: until main fixes it
-        requires = {
-            {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'},
-            {'nvim-telescope/telescope.nvim'}
-        },
-        branch = 'corani_fixes',
-        config = function() require('plugins/neuron').setup() end
-    }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('plugins/nvim-treesitter').setup() end
+  }
 
-    use {'NFrid/due.nvim', config = function() require('due_nvim').setup {} end}
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function() require('nvim-ts-autotag').setup() end
+  }
 
-    use {
-        'iamcco/markdown-preview.nvim',
-        run = function() require('plugins/markdown-preview').setup() end
-    }
-    use {
-        'famiu/nvim-reload',
-        cmd = {'Reload', 'Restart'},
-        config = function() H.cmd [[packadd plenary.nvim]] end
-    }
+  -- tpope
+  use 'tpope/vim-surround'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-projectionist' -- TODO: setup me
+  use 'github/copilot.vim'
 
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-lua/popup.nvim'
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
+  -- ThePrimeagen
+  use {
+    'ThePrimeagen/harpoon',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope.nvim'}},
+    run = function() require("telescope").load_extension('harpoon') end
+  }
+  use {
+    "ThePrimeagen/refactoring.nvim",  -- TODO: test me
+    requires = {
+      {"nvim-lua/plenary.nvim"},
+      {"nvim-treesitter/nvim-treesitter"}
+    },
+    config = function() require("refactoring").setup({
+      -- prompt for return type
+      prompt_func_return_type = {
+        go = true,
+        cpp = true,
+        c = true,
+        java = true,
+      },
+      -- prompt for function parameters
+      prompt_func_param_type = {
+        go = true,
+        cpp = true,
+        c = true,
+        java = true,
+      },
+    }) end
+  }
 
-    use {'mg979/vim-visual-multi', branch = 'master'}
+  -- LSP, autocomplete, et cetera
+  use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+  }
 
-    use {
-        'folke/todo-comments.nvim',
-        requires = 'nvim-lua/plenary.nvim',
-        config = function() require('todo-comments').setup {} end
-    }
+  use {
+    {'ms-jpq/coq_nvim', branch = 'coq'},
+    {'ms-jpq/coq.artifacts', branch = 'artifacts'},
+    {'ms-jpq/coq.thirdparty', branch = '3p'}
+  }
 
-    use {
-        'windwp/nvim-ts-autotag',
-        config = function() require('nvim-ts-autotag').setup() end
-    }
+  -- THEMES
+  use 'ryanoasis/vim-devicons'
+  use {
+    'NTBBloodbath/galaxyline.nvim',
+    config = function()
+      require('themes/galaxyline')
+    end
+  }
+  use 'megantiu/true.vim'
 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('plugins/nvim-treesitter').setup() end
-    }
-    use {
-        'nvim-treesitter/playground',
-        run = function()
-            require('plugins/nvim-treesitter-playground').setup()
-        end
-    }
 
-    use 'haringsrob/nvim_context_vt'
+  -- GIT
+  use 'airblade/vim-gitgutter' -- TODO: setup
+  use 'f-person/git-blame.nvim'
 
-    -- tpope
-    use 'tpope/vim-surround'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-projectionist'
-
-    -- ThePrimeagen
-    use {
-        'ThePrimeagen/harpoon',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
-    use {
-        'ThePrimeagen/refactoring.nvim',
-        requires = {
-            {'nvim-lua/plenary.nvim'}, {'nvim-treesitter/nvim-treesitter'}
-        },
-        config = function() require('plugins/refactoring-nvim').setup() end
-    }
-
-    -- LSP, autocomplete etc.
-    use {
-        'hrsh7th/nvim-compe',
-        config = function() require('plugins/nvim-compe').setup() end
-    }
-    use 'neovim/nvim-lspconfig'
-    use {
-        'kabouzeid/nvim-lspinstall',
-        config = function() require('plugins/lspinstall') end
-    }
-    use {
-        'ray-x/lsp_signature.nvim',
-        config = function() require'lsp_signature'.setup() end
-    }
-    use {
-        'mhartington/formatter.nvim',
-        config = function() require('plugins/formatter') end
-    }
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
-    use 'rafamadriz/friendly-snippets'
-    use {'kosayoda/nvim-lightbulb', run = function() end}
-    use {
-        'folke/trouble.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require('trouble').setup {} end
-    }
-
-    -- THEMES
-    -- Devicons, also install https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode/Regular
-    use 'ryanoasis/vim-devicons'
-    use 'megantiu/true.vim'
-    use 'Rigellute/shades-of-purple.vim'
-    use {
-      'pineapplegiant/spaceduck',
-      branch = 'main'
-    }
-    use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-    }
-    use 'luochen1990/rainbow'
-    use {
-        'folke/twilight.nvim',
-        config = function() require('twilight').setup {} end
-    }
-    use {
-        'sunjon/Shade.nvim',
-        config = function() require'plugins/shade'.setup() end
-    }
-
-    -- GIT
-    use 'airblade/vim-gitgutter'
-    use 'f-person/git-blame.nvim'
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

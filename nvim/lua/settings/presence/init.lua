@@ -1,7 +1,0 @@
-H.g.presence_editing_text        = "Editing some secret file"
-H.g.presence_file_explorer_text  = "Browsing project"
-H.g.presence_git_commit_text     = "Committing changes"
-H.g.presence_plugin_manager_text = "Managing plugins"
-H.g.presence_reading_text        = "Reading some secret file"
-H.g.presence_workspace_text      = "Working on something"
-H.g.presence_line_number_text    = "Line 69 out of 763"

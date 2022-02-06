@@ -17,6 +17,7 @@ Hence: my dotfiles. This project aims to bootstrap your configuration through a 
 ### Prerequesites
 
 * Signin to AppStore
+* virtualenv
 
 Simply run on macos
 

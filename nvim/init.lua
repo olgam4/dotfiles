@@ -1,8 +1,9 @@
 H = require('helpers')
-G = {}  -- use to create functions to be called through keymappings
+
+-- GLOBAL FUNCTIONS OBJECT
+G = {}
 
 require('plugins')
 require('settings')
 require('keymappings')
 require('themes')
-

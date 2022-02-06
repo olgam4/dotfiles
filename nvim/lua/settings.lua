@@ -10,11 +10,4 @@ H.opt.shiftwidth = 2              -- make tabs two spaces
 H.opt.smarttab = true             -- make tabs two spaces
 H.opt.autoindent = true           -- autoindent
 
---------- PLUGINS
-
-require('settings/nvim-tree')
-require('settings/presence')
-require('settings/minimap')
-require('settings/rainbow')
-require('settings/git-blame')
-require('settings/galaxyline')
+H.g.gitblame_enabled = 0
