@@ -6,6 +6,7 @@ M.fn = vim.fn
 M.g = vim.g
 M.execute = vim.api.nvim_command
 M.lsp = vim.lsp
+M.api = vim.api
 
 function M.is_buffer_empty() return vim.fn.empty(vim.fn.expand('%:t')) == 1 end
 

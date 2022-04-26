@@ -16,7 +16,7 @@ H.keymap('n', '\'f', '\'F')
 
 -- PANES
 -- move through panes withouth first <c-w>
-H.keymap('n', '<c-g>', '<c-w><c-h>') -- TODO: fix problem between coq and this
+H.keymap('n', '<c-h>', '<c-w><c-h>') -- TODO: fix problem between coq and this
 H.keymap('n', '<c-j>', '<c-w><c-j>')
 H.keymap('n', '<c-k>', '<c-w><c-k>')
 H.keymap('n', '<c-l>', '<c-w><c-l>')
@@ -50,7 +50,16 @@ H.keymap('i', '}', '}<c-g>u')
 H.keymap('i', '(', '(<c-g>u')
 H.keymap('i', ')', ')<c-g>u')
 
+-- copy paste from clipboard
+H.keymap('n', '<D-v>', '"*p')
+H.keymap('i', '<D-v>', '<esc>"*pa')
+H.keymap('v', '<D-c>', '"*y')
+
+-- close
+H.keymap('n', '<D-w>', ':wqa<cr>')
+
 require('keymappings/lsp')
+require('keymappings/custom')
 
 -- PLUGINS
 require('keymappings/nvim-tree')

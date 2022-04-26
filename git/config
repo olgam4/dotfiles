@@ -12,8 +12,11 @@
 	rebase-root = rebase -i --root
 [core]
 	editor = nvim
+	excludesfile = ~/.config/git/gitignore
 [init]
 	defaultBranch = main
 [user]
 	name = Olivier Gamache
-	email = olivier.gamache@.elapsetech.com
+	email = olivier.gamache@elapsetech.com
+[pull]
+	rebase = true

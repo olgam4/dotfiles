@@ -10,4 +10,9 @@ H.opt.shiftwidth = 2              -- make tabs two spaces
 H.opt.smarttab = true             -- make tabs two spaces
 H.opt.autoindent = true           -- autoindent
 
+H.cmd [[ set nocompatible ]]
+
 H.g.gitblame_enabled = 0
+
+-- neovide
+H.cmd [[ let g:neovide_input_use_logo = v:true ]]

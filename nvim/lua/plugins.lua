@@ -61,11 +61,13 @@ return require('packer').startup(function()
   }
 
   -- tpope
-  use 'tpope/vim-surround'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-projectionist' -- TODO: setup me
-  use 'github/copilot.vim'
+  use {
+    {'tpope/vim-surround'},
+    {'tpope/vim-fugitive'},
+    {'tpope/vim-commentary'},
+    {'tpope/vim-projectionist'}, -- TODO: setup me
+    {'github/copilot.vim'}
+  }
 
   -- ThePrimeagen
   use {
@@ -98,15 +100,23 @@ return require('packer').startup(function()
   }
 
   -- LSP, autocomplete, et cetera
+  use 'sheerun/vim-polyglot'
   use {
-    'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-  }
-
-  use {
-    {'ms-jpq/coq_nvim', branch = 'coq'},
-    {'ms-jpq/coq.artifacts', branch = 'artifacts'},
-    {'ms-jpq/coq.thirdparty', branch = '3p'}
+    {'neovim/nvim-lspconfig'},
+    {'williamboman/nvim-lsp-installer',
+    config = function()
+      require("nvim-lsp-installer").on_server_ready(function(server)
+        local opts = {}
+        server:setup(opts)
+      end)
+    end},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'hrsh7th/cmp-cmdline'},
+    {'hrsh7th/nvim-cmp'},
+    {'hrsh7th/cmp-vsnip'},
+    {'hrsh7th/vim-vsnip'}
   }
 
   -- THEMES
@@ -123,7 +133,7 @@ return require('packer').startup(function()
   -- GIT
   use 'airblade/vim-gitgutter' -- TODO: setup
   use 'f-person/git-blame.nvim'
-
+  
   if packer_bootstrap then
     require('packer').sync()
   end
