@@ -16,7 +16,7 @@ H.keymap('n', '\'f', '\'F')
 
 -- PANES
 -- move through panes withouth first <c-w>
-H.keymap('n', '<c-h>', '<c-w><c-h>') -- TODO: fix problem between coq and this
+H.keymap('n', '<c-h>', '<c-w><c-h>')
 H.keymap('n', '<c-j>', '<c-w><c-j>')
 H.keymap('n', '<c-k>', '<c-w><c-k>')
 H.keymap('n', '<c-l>', '<c-w><c-l>')
@@ -26,8 +26,8 @@ H.keymap('n', 'ghp', '<cmd>sp<cr><c-w><c-j>')
 
 -- TABS
 -- open tab
-H.keymap('n', 'tt', '<cr><cmd>tab split<cr>')
-H.keymap('n', 'tc', '<cmd>tabc<cr>')
+H.keymap('n', '<leader>tt', '<cr><cmd>tab split<cr>')
+H.keymap('n', '<leader>tc', '<cmd>tabc<cr>')
 
 -- QUALITY OF LIFE
 -- delete to null
@@ -49,6 +49,10 @@ H.keymap('i', '{', '{<c-g>u')
 H.keymap('i', '}', '}<c-g>u')
 H.keymap('i', '(', '(<c-g>u')
 H.keymap('i', ')', ')<c-g>u')
+-- quick moving
+H.keymap('n', 'J', '5j')
+H.keymap('n', 'K', '5k')
+H.keymap('n', '<leader>j', 'J')
 
 -- copy paste from clipboard
 H.keymap('n', '<D-v>', '"*p')
@@ -57,6 +61,12 @@ H.keymap('v', '<D-c>', '"*y')
 
 -- close
 H.keymap('n', '<D-w>', ':wqa<cr>')
+
+-- disable arrow keys
+H.keymap('n', '<up>', '', {silent = true})
+H.keymap('n', '<down>', '', {silent = true})
+H.keymap('n', '<left>', '', {silent = true})
+H.keymap('n', '<right>', '', {silent = true})
 
 require('keymappings/lsp')
 require('keymappings/custom')

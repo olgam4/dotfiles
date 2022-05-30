@@ -3,6 +3,7 @@ H.opt.relativenumber = true       -- show relative line numbers
 H.opt.nu = true
 H.opt.rnu = true
 H.opt.updatetime = 50             -- accelerate refresh time of buffers
+H.opt.laststatus = 3              -- show only one status line
 H.cmd [[ set formatoptions-=o ]]  -- TODO: find another way with only `H.opt`
 H.opt.expandtab = true            -- make tabs be spaces
 H.opt.tabstop = 2                 -- make tabs two spaces

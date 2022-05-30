@@ -1,11 +1,15 @@
 function _G.git_commit()
     local message = H.fn.input("Commit message: ")
-    H.fn.execute('! git add -A')
-    H.fn.execute("! git commit -m \"" .. message .. "\"")
-    -- H.fn.execute('! git push')
+    if message == "" then
+        print("No commit message given. Aborting.")
+        return
+    end
+    H.api.nvim_command('! git add -A')
+    H.api.nvim_command("! git commit -m \"" .. message .. "\"")
+    H.api.nvim_command('! git push')
 end
 
-H.keymap('n', 'gcp', ':lua git_commit()<cr>', { silent = true })
+H.keymap('n', 'gcp', '<cmd>wa<cr><cmd>lua git_commit()<cr>', { silent = true })
 
 function _G.increase_font_size()
     local font = H.api.nvim_get_option('guifont')
