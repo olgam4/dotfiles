@@ -30,6 +30,9 @@ return require('packer').startup(function()
       open_on_setup = true,
       update_focused_file = {
         enable = true,
+      },
+      diagnostics = {
+        enable = true,
       }
     }
     end,
@@ -37,8 +40,9 @@ return require('packer').startup(function()
   }
 
   -- dancing around
-  use 'unblevable/quick-scope'
-  use 'easymotion/vim-easymotion'
+  use 'wellle/targets.vim'
+  use 'ggandor/lightspeed.nvim'
+
   use 'tjdevries/train.nvim'
 
   use {
@@ -90,7 +94,13 @@ return require('packer').startup(function()
     { 'tpope/vim-fugitive' },
     { 'tpope/vim-commentary' },
     { 'tpope/vim-projectionist' }, -- TODO: setup me
-    { 'github/copilot.vim' }
+    {
+      'github/copilot.vim',
+      config = function ()
+          local node_path = "~/.nvm/versions/node/v17.9.0/bin/node";
+          vim.g['copilot_node_command'] = node_path;
+      end
+    }
   }
 
   -- ThePrimeagen
@@ -105,22 +115,7 @@ return require('packer').startup(function()
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" }
     },
-    config = function() require("refactoring").setup({
-      -- prompt for return type
-      prompt_func_return_type = {
-        go = true,
-        cpp = true,
-        c = true,
-        java = true,
-      },
-      -- prompt for function parameters
-      prompt_func_param_type = {
-        go = true,
-        cpp = true,
-        c = true,
-        java = true,
-      },
-    })
+    config = function() require'refactoring'.setup {}
     end
   }
 
@@ -134,7 +129,15 @@ return require('packer').startup(function()
       config = function()
         require('nvim-lsp-installer').setup {}
         local lspconfig = require('lspconfig')
-        lspconfig.sumneko_lua.setup {}
+        lspconfig.sumneko_lua.setup {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = {'vim', 'use' }
+              },
+            },
+          },
+        }
         lspconfig.tsserver.setup {
             root_dir = lspconfig.util.root_pattern("package.json"),
         }
@@ -142,10 +145,10 @@ return require('packer').startup(function()
             root_dir = lspconfig.util.root_pattern("deno.json"),
         }
         lspconfig.tailwindcss.setup {}
-        lspconfig.cssls.setup {}
         lspconfig.astro.setup {}
+        lspconfig.bashls.setup {}
         lspconfig.rust_analyzer.setup {}
-        lspconfig.html.setup {
+        lspconfig.emmet_ls.setup {
           filetypes = { 'html', 'tsx', 'jsx', 'typescriptreact', 'typescript' },
         }
       end },

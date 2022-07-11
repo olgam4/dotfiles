@@ -51,12 +51,15 @@ H.keymap('i', '(', '(<c-g>u')
 H.keymap('i', ')', ')<c-g>u')
 -- quick moving
 H.keymap('n', 'J', '5j')
+H.keymap('v', 'J', '5j')
 H.keymap('n', 'K', '5k')
+H.keymap('v', 'K', '5k')
 H.keymap('n', '<leader>j', 'J')
 
 -- copy paste from clipboard
 H.keymap('n', '<D-v>', '"*p')
 H.keymap('i', '<D-v>', '<esc>"*pa')
+H.keymap('t', '<D-v>', '<c-\\><c-n>"*pa')
 H.keymap('v', '<D-c>', '"*y')
 
 -- close

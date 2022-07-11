@@ -111,6 +111,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["copilot.vim"] = {
+    config = { "\27LJ\2\n\\\0\0\2\0\4\0\5'\0\0\0006\1\1\0009\1\2\1=\0\3\1K\0\1\0\25copilot_node_command\6g\bvim*~/.nvm/versions/node/v17.9.0/bin/node\0" },
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
@@ -135,6 +136,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
+  },
+  ["lightspeed.nvim"] = {
+    loaded = true,
+    path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
+    url = "https://github.com/ggandor/lightspeed.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -165,7 +171,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\n¬\3\0\0\a\0\22\00066\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\0\0'\2\3\0B\0\2\0029\1\4\0009\1\2\0014\3\0\0B\1\2\0019\1\5\0009\1\2\0015\3\t\0009\4\6\0009\4\a\4'\6\b\0B\4\2\2=\4\n\3B\1\2\0019\1\v\0009\1\2\0015\3\r\0009\4\6\0009\4\a\4'\6\f\0B\4\2\2=\4\n\3B\1\2\0019\1\14\0009\1\2\0014\3\0\0B\1\2\0019\1\15\0009\1\2\0014\3\0\0B\1\2\0019\1\16\0009\1\2\0014\3\0\0B\1\2\0019\1\17\0009\1\2\0014\3\0\0B\1\2\0019\1\18\0009\1\2\0015\3\20\0005\4\19\0=\4\21\3B\1\2\1K\0\1\0\14filetypes\1\0\0\1\6\0\0\thtml\btsx\bjsx\20typescriptreact\15typescript\thtml\18rust_analyzer\nastro\ncssls\16tailwindcss\1\0\0\14deno.json\vdenols\rroot_dir\1\0\0\17package.json\17root_pattern\tutil\rtsserver\16sumneko_lua\14lspconfig\nsetup\23nvim-lsp-installer\frequire\0" },
+    config = { "\27LJ\2\n†\4\0\0\b\0\31\0>6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\0\0'\2\3\0B\0\2\0029\1\4\0009\1\2\0015\3\f\0005\4\n\0005\5\b\0005\6\6\0005\a\5\0=\a\a\6=\6\t\5=\5\v\4=\4\r\3B\1\2\0019\1\14\0009\1\2\0015\3\18\0009\4\15\0009\4\16\4'\6\17\0B\4\2\2=\4\19\3B\1\2\0019\1\20\0009\1\2\0015\3\22\0009\4\15\0009\4\16\4'\6\21\0B\4\2\2=\4\19\3B\1\2\0019\1\23\0009\1\2\0014\3\0\0B\1\2\0019\1\24\0009\1\2\0014\3\0\0B\1\2\0019\1\25\0009\1\2\0014\3\0\0B\1\2\0019\1\26\0009\1\2\0014\3\0\0B\1\2\0019\1\27\0009\1\2\0015\3\29\0005\4\28\0=\4\30\3B\1\2\1K\0\1\0\14filetypes\1\0\0\1\6\0\0\thtml\btsx\bjsx\20typescriptreact\15typescript\remmet_ls\18rust_analyzer\vbashls\nastro\16tailwindcss\1\0\0\14deno.json\vdenols\rroot_dir\1\0\0\17package.json\17root_pattern\tutil\rtsserver\rsettings\1\0\0\bLua\1\0\0\16diagnostics\1\0\0\fglobals\1\0\0\1\3\0\0\bvim\buse\16sumneko_lua\14lspconfig\nsetup\23nvim-lsp-installer\frequire\0" },
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -177,13 +183,13 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\nt\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\24update_focused_file\1\0\1\venable\2\1\0\1\18open_on_setup\2\nsetup\14nvim-tree\frequire\0" },
+    config = { "\27LJ\2\nì\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\16diagnostics\1\0\1\venable\2\24update_focused_file\1\0\1\venable\2\1\0\1\18open_on_setup\2\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n \2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\21node_incremental\bgrn\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\1\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n \2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\bgrn\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\1\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -208,13 +214,8 @@ _G.packer_plugins = {
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["quick-scope"] = {
-    loaded = true,
-    path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/quick-scope",
-    url = "https://github.com/unblevable/quick-scope"
-  },
   ["refactoring.nvim"] = {
-    config = { "\27LJ\2\n©\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\27prompt_func_param_type\1\0\4\tjava\2\ago\2\bcpp\2\6c\2\28prompt_func_return_type\1\0\0\1\0\4\tjava\2\ago\2\bcpp\2\6c\2\nsetup\16refactoring\frequire\0" },
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16refactoring\frequire\0" },
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
     url = "https://github.com/ThePrimeagen/refactoring.nvim"
@@ -224,6 +225,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/spellsitter.nvim",
     url = "https://github.com/lewis6991/spellsitter.nvim"
+  },
+  ["targets.vim"] = {
+    loaded = true,
+    path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/targets.vim",
+    url = "https://github.com/wellle/targets.vim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -255,11 +261,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
-  },
-  ["vim-easymotion"] = {
-    loaded = true,
-    path = "/Users/laplace/.local/share/nvim/site/pack/packer/start/vim-easymotion",
-    url = "https://github.com/easymotion/vim-easymotion"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -294,10 +295,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+try_loadstring("\27LJ\2\n2\0\0\4\0\3\0\0066\0\0\0006\1\2\0'\3\1\0B\1\2\2=\1\1\0K\0\1\0\frequire\vnotify\bvim\0", "config", "nvim-notify")
+time([[Config for nvim-notify]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\2\nR\0\1\3\1\2\0\f-\1\0\0009\1\0\1B\1\1\2\15\0\1\0X\2\4Ä-\1\0\0009\1\1\1B\1\1\1X\1\2Ä\18\1\0\0B\1\1\1K\0\1\0\0¿\21select_next_item\fvisibleR\0\1\3\1\2\0\f-\1\0\0009\1\0\1B\1\1\2\15\0\1\0X\2\4Ä-\1\0\0009\1\1\1B\1\1\1X\1\2Ä\18\1\0\0B\1\1\1K\0\1\0\0¿\21select_prev_item\fvisible‚\2\1\0\t\0\25\00016\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\f\0005\4\n\0004\5\6\0009\6\3\0009\6\4\0069\6\5\6>\6\1\0059\6\3\0009\6\4\0069\6\6\6>\6\2\0059\6\3\0009\6\4\0069\6\a\6>\6\3\0059\6\3\0009\6\4\0069\6\b\6>\6\4\0059\6\3\0009\6\4\0069\6\t\6>\6\5\5=\5\v\4=\4\r\0035\4\17\0009\5\14\0009\5\15\0055\a\16\0B\5\2\2=\5\18\0049\5\14\0003\a\19\0005\b\20\0B\5\3\2=\5\21\0049\5\14\0003\a\22\0005\b\23\0B\5\3\2=\5\24\4=\4\14\3B\1\2\0012\0\0ÄK\0\1\0\6~\1\3\0\0\6i\6s\0\6`\1\3\0\0\6i\6s\0\t<CR>\1\0\0\1\0\1\vselect\2\fconfirm\fmapping\fsorting\1\0\0\16comparators\1\0\0\norder\14sort_text\nscore\nexact\voffset\fcompare\vconfig\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n¬\3\0\0\a\0\22\00066\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\0\0'\2\3\0B\0\2\0029\1\4\0009\1\2\0014\3\0\0B\1\2\0019\1\5\0009\1\2\0015\3\t\0009\4\6\0009\4\a\4'\6\b\0B\4\2\2=\4\n\3B\1\2\0019\1\v\0009\1\2\0015\3\r\0009\4\6\0009\4\a\4'\6\f\0B\4\2\2=\4\n\3B\1\2\0019\1\14\0009\1\2\0014\3\0\0B\1\2\0019\1\15\0009\1\2\0014\3\0\0B\1\2\0019\1\16\0009\1\2\0014\3\0\0B\1\2\0019\1\17\0009\1\2\0014\3\0\0B\1\2\0019\1\18\0009\1\2\0015\3\20\0005\4\19\0=\4\21\3B\1\2\1K\0\1\0\14filetypes\1\0\0\1\6\0\0\thtml\btsx\bjsx\20typescriptreact\15typescript\thtml\18rust_analyzer\nastro\ncssls\16tailwindcss\1\0\0\14deno.json\vdenols\rroot_dir\1\0\0\17package.json\17root_pattern\tutil\rtsserver\16sumneko_lua\14lspconfig\nsetup\23nvim-lsp-installer\frequire\0", "config", "nvim-lspconfig")
+try_loadstring("\27LJ\2\n†\4\0\0\b\0\31\0>6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\0\0'\2\3\0B\0\2\0029\1\4\0009\1\2\0015\3\f\0005\4\n\0005\5\b\0005\6\6\0005\a\5\0=\a\a\6=\6\t\5=\5\v\4=\4\r\3B\1\2\0019\1\14\0009\1\2\0015\3\18\0009\4\15\0009\4\16\4'\6\17\0B\4\2\2=\4\19\3B\1\2\0019\1\20\0009\1\2\0015\3\22\0009\4\15\0009\4\16\4'\6\21\0B\4\2\2=\4\19\3B\1\2\0019\1\23\0009\1\2\0014\3\0\0B\1\2\0019\1\24\0009\1\2\0014\3\0\0B\1\2\0019\1\25\0009\1\2\0014\3\0\0B\1\2\0019\1\26\0009\1\2\0014\3\0\0B\1\2\0019\1\27\0009\1\2\0015\3\29\0005\4\28\0=\4\30\3B\1\2\1K\0\1\0\14filetypes\1\0\0\1\6\0\0\thtml\btsx\bjsx\20typescriptreact\15typescript\remmet_ls\18rust_analyzer\vbashls\nastro\16tailwindcss\1\0\0\14deno.json\vdenols\rroot_dir\1\0\0\17package.json\17root_pattern\tutil\rtsserver\rsettings\1\0\0\bLua\1\0\0\16diagnostics\1\0\0\fglobals\1\0\0\1\3\0\0\bvim\buse\16sumneko_lua\14lspconfig\nsetup\23nvim-lsp-installer\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\nì\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\16diagnostics\1\0\1\venable\2\24update_focused_file\1\0\1\venable\2\1\0\1\18open_on_setup\2\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
@@ -306,42 +319,34 @@ time([[Config for todo-comments.nvim]], false)
 time([[Config for nvim-lsp-installer]], true)
 try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\23nvim-lsp-installer\frequire\0", "config", "nvim-lsp-installer")
 time([[Config for nvim-lsp-installer]], false)
--- Config for: galaxyline.nvim
-time([[Config for galaxyline.nvim]], true)
-try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22themes/galaxyline\frequire\0", "config", "galaxyline.nvim")
-time([[Config for galaxyline.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\nt\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\24update_focused_file\1\0\1\venable\2\1\0\1\18open_on_setup\2\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\nR\0\1\3\1\2\0\f-\1\0\0009\1\0\1B\1\1\2\15\0\1\0X\2\4Ä-\1\0\0009\1\1\1B\1\1\1X\1\2Ä\18\1\0\0B\1\1\1K\0\1\0\0¿\21select_next_item\fvisibleR\0\1\3\1\2\0\f-\1\0\0009\1\0\1B\1\1\2\15\0\1\0X\2\4Ä-\1\0\0009\1\1\1B\1\1\1X\1\2Ä\18\1\0\0B\1\1\1K\0\1\0\0¿\21select_prev_item\fvisible‚\2\1\0\t\0\25\00016\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\f\0005\4\n\0004\5\6\0009\6\3\0009\6\4\0069\6\5\6>\6\1\0059\6\3\0009\6\4\0069\6\6\6>\6\2\0059\6\3\0009\6\4\0069\6\a\6>\6\3\0059\6\3\0009\6\4\0069\6\b\6>\6\4\0059\6\3\0009\6\4\0069\6\t\6>\6\5\5=\5\v\4=\4\r\0035\4\17\0009\5\14\0009\5\15\0055\a\16\0B\5\2\2=\5\18\0049\5\14\0003\a\19\0005\b\20\0B\5\3\2=\5\21\0049\5\14\0003\a\22\0005\b\23\0B\5\3\2=\5\24\4=\4\14\3B\1\2\0012\0\0ÄK\0\1\0\6~\1\3\0\0\6i\6s\0\6`\1\3\0\0\6i\6s\0\t<CR>\1\0\0\1\0\1\vselect\2\fconfirm\fmapping\fsorting\1\0\0\16comparators\1\0\0\norder\14sort_text\nscore\nexact\voffset\fcompare\vconfig\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
--- Config for: spellsitter.nvim
-time([[Config for spellsitter.nvim]], true)
-try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\venable\2\nsetup\16spellsitter\frequire\0", "config", "spellsitter.nvim")
-time([[Config for spellsitter.nvim]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16refactoring\frequire\0", "config", "refactoring.nvim")
+time([[Config for refactoring.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n \2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\21node_incremental\bgrn\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\1\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\n \2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\bgrn\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\1\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: refactoring.nvim
-time([[Config for refactoring.nvim]], true)
-try_loadstring("\27LJ\2\n©\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\27prompt_func_param_type\1\0\4\tjava\2\ago\2\bcpp\2\6c\2\28prompt_func_return_type\1\0\0\1\0\4\tjava\2\ago\2\bcpp\2\6c\2\nsetup\16refactoring\frequire\0", "config", "refactoring.nvim")
-time([[Config for refactoring.nvim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-try_loadstring("\27LJ\2\n2\0\0\4\0\3\0\0066\0\0\0006\1\2\0'\3\1\0B\1\2\2=\1\1\0K\0\1\0\frequire\vnotify\bvim\0", "config", "nvim-notify")
-time([[Config for nvim-notify]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
+-- Config for: spellsitter.nvim
+time([[Config for spellsitter.nvim]], true)
+try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\venable\2\nsetup\16spellsitter\frequire\0", "config", "spellsitter.nvim")
+time([[Config for spellsitter.nvim]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22themes/galaxyline\frequire\0", "config", "galaxyline.nvim")
+time([[Config for galaxyline.nvim]], false)
+-- Config for: copilot.vim
+time([[Config for copilot.vim]], true)
+try_loadstring("\27LJ\2\n\\\0\0\2\0\4\0\5'\0\0\0006\1\1\0009\1\2\1=\0\3\1K\0\1\0\25copilot_node_command\6g\bvim*~/.nvm/versions/node/v17.9.0/bin/node\0", "config", "copilot.vim")
+time([[Config for copilot.vim]], false)
 if should_profile then save_profiles() end
 
 end)
