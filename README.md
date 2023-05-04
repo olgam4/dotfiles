@@ -2,6 +2,8 @@
 
 ![Screenshot](./assets/screenshot.png)
 
-Using [Liga Hasklig](https://github.com/olgam4/ligahasklig) for font
+- [Liga Hasklig](https://github.com/olgam4/ligahasklig) for font
+- [kanagawa](https://github.com/rebelot/kanagawa.nvim) for theme
 
-Using [kanagawa](https://github.com/rebelot/kanagawa.nvim) for theme
+## Install
+
