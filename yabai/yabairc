@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+
+
+yabai -m config window_gap       10     \
+                left_padding     10     \
+                right_padding    10     \
+                bottom_padding   10     \
+                top_padding      10     \
+
+
+yabai -m rule --add app="^(Font Book|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+
+yabai -m config layout bsp
+
+echo "yabai config loaded.."

@@ -1,0 +1,11 @@
+shift + cmd - return : yabai -m window --toggle zoom-fullscreen
+
+fn    + cmd -      h : yabai -m window --focus west 
+fn    + cmd -      l : yabai -m window --focus east
+fn    + cmd -      j : yabai -m window --focus south 
+fn    + cmd -      k : yabai -m window --focus north 
+
+fn    + shift -      h : yabai -m window --warp west 
+fn    + shift -      l : yabai -m window --warp east
+fn    + shift -      j : yabai -m window --warp south 
+fn    + shift -      k : yabai -m window --warp north 
