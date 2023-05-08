@@ -1,11 +1,36 @@
-shift + cmd - return : yabai -m window --toggle zoom-fullscreen
+# Fullscreen current window - shift cmd return
+shift +   cmd - return : yabai -m window --toggle zoom-fullscreen
 
-fn    + cmd -      h : yabai -m window --focus west 
-fn    + cmd -      l : yabai -m window --focus east
-fn    + cmd -      j : yabai -m window --focus south 
-fn    + cmd -      k : yabai -m window --focus north 
+# Move focus in current space - fn cmd [hjkl]
+fn    +   cmd -      h : yabai -m window --focus west 
+fn    +   cmd -      l : yabai -m window --focus east
+fn    +   cmd -      j : yabai -m window --focus south 
+fn    +   cmd -      k : yabai -m window --focus north 
 
+# Move current window in current space - fn shift [hjkl]
 fn    + shift -      h : yabai -m window --warp west 
 fn    + shift -      l : yabai -m window --warp east
 fn    + shift -      j : yabai -m window --warp south 
 fn    + shift -      k : yabai -m window --warp north 
+
+# TODO: Fix me
+# Moving windows between spaces: shift + lalt - {1, 2, 3, 4, p, n } (Assumes 4 Spaces Max per Display)
+
+# shift +   cmd -      1 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
+#                         yabai -m window --space $((1+4*($DISPLAY - 1)));\
+#                         sketchybar --trigger windows_on_spaces
+
+# shift +   cmd -      2 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
+#                         yabai -m window --space $((2+4*($DISPLAY - 1)));\
+#                         sketchybar --trigger windows_on_spaces
+
+# shift +   cmd -      3 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
+#                         yabai -m window --space $((3+4*($DISPLAY - 1)));\
+#                         sketchybar --trigger windows_on_spaces
+
+# shift +   cmd -      4 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
+#                         yabai -m window --space $((4+4*($DISPLAY - 1)));\
+#                         sketchybar --trigger windows_on_spaces
+
+shift +   cmd -      p : yabai -m window --space prev; yabai -m space --focus prev; sketchybar --trigger windows_on_spaces
+shift +   cmd -      n : yabai -m window --space next; yabai -m space --focus next; sketchybar --trigger windows_on_spaces

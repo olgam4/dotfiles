@@ -15,12 +15,12 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
 sketchybar --bar height=32        \
-                 blur_radius=100   \
                  position=top     \
+                 notch_width=180  \
                  sticky=off       \
                  padding_left=10  \
                  padding_right=10 \
-                 color=0x15ffffff
+                 color=0x00000000
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
@@ -28,9 +28,9 @@ sketchybar --bar height=32        \
 # https://felixkratz.github.io/SketchyBar/config/items
 
 sketchybar --default icon.font="LigaHasklig Nerd Font:Regular:14.0"   \
-                     icon.color=0xffffffff                             \
+                     icon.color=0xffdcd7ba                            \
                      label.font="LigaHasklig Nerd Font:Regular:14.0"  \
-                     label.color=0xffffffff                            \
+                     label.color=0xffdcd7ba                           \
                      padding_left=5                                    \
                      padding_right=5                                   \
                      label.padding_left=4                              \
@@ -51,7 +51,6 @@ do
   sketchybar --add space space.$sid left                                 \
              --set space.$sid associated_space=$sid                      \
                               icon=${SPACE_ICONS[i]}                     \
-                              background.color=0x44ffffff                \
                               background.corner_radius=5                 \
                               background.height=20                       \
                               background.drawing=off                     \
@@ -73,6 +72,7 @@ sketchybar --add item space_separator left                         \
            --add item front_app left                               \
            --set front_app       script="$PLUGIN_DIR/front_app.sh" \
                                  icon.drawing=off                  \
+                                 background.color=0xff1f1f28       \
            --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
@@ -90,19 +90,28 @@ sketchybar --add item clock right                              \
            --set clock   update_freq=10                        \
                          icon=󰅐                                \
                          script="$PLUGIN_DIR/clock.sh"         \
+                         background.color=0xff1f1f28           \
+                         background.corner_radius=5            \
                                                                \
            --add item wifi right                               \
            --set wifi    script="$PLUGIN_DIR/wifi.sh"          \
                          icon=󰖩                                \
+                         background.color=0xff1f1f28           \
+                         background.corner_radius=5            \
            --subscribe wifi wifi_change                        \
                                                                \
            --add item volume right                             \
            --set volume  script="$PLUGIN_DIR/volume.sh"        \
+                         background.color=0xff1f1f28           \
+                         background.corner_radius=5            \
+                         label.drawing=off                     \
            --subscribe volume volume_change                    \
                                                                \
            --add item battery right                            \
            --set battery script="$PLUGIN_DIR/battery.sh"       \
                          update_freq=120                       \
+                         background.color=0xff1f1f28           \
+                         background.corner_radius=5            \
            --subscribe battery system_woke power_source_change
 
 ##### Finalizing Setup #####
