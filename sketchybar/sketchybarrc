@@ -20,7 +20,7 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 bar=(
   height=32        
   position=top     
-  notch_width=180  
+  notch_width=188
   sticky=off       
   padding_left=10  
   padding_right=10
@@ -92,7 +92,8 @@ sketchybar --add item space_separator left                         \
 
 sketchybar --add bracket spaces "${spaces[@]}" space_separator front_app \
            --set spaces background.color=$BACKGROUND \
-                        background.corner_radius=5  
+                        background.corner_radius=5   \
+                        background.height=30         \
 
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
