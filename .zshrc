@@ -20,6 +20,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ls='exa'
 alias useful="open ~/useful"
+alias sketchreset="brew services stop sketchybar && brew services start sketchybar"
 
 function take() {
   mkdir -p "$1" && cd "$1"

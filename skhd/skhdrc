@@ -1,11 +1,11 @@
 # Fullscreen current window - shift cmd return
 shift +   cmd - return : yabai -m window --toggle zoom-fullscreen
 
-# Move focus in current space - fn cmd [hjkl]
-fn    +   cmd -      h : yabai -m window --focus west 
-fn    +   cmd -      l : yabai -m window --focus east
-fn    +   cmd -      j : yabai -m window --focus south 
-fn    +   cmd -      k : yabai -m window --focus north 
+# Move focus to window in direction - fn cmd [hjkl]
+fn    +   cmd -      h : yabai -m window --focus west  || yabai -m display --focus west
+fn    +   cmd -      l : yabai -m window --focus east  || yabai -m display --focus east
+fn    +   cmd -      j : yabai -m window --focus south || yabai -m display --focus south
+fn    +   cmd -      k : yabai -m window --focus north || yabai -m display --focus north
 
 # Move current window in current space - fn shift [hjkl]
 fn    + shift -      h : yabai -m window --warp west 
