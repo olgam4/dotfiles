@@ -4,4 +4,6 @@
 # the item invoking this script:
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
-sketchybar --set $NAME label="$(date '+%a %d/%m %H:%M' | tr '[:upper:]' '[:lower:]')"
+source $HOME/.config/sketchybar/colors.sh
+
+sketchybar --set $NAME label="$(date '+%a %d/%m %H:%M' | tr '[:upper:]' '[:lower:]')" icon.color="$SELECTION_FOREGROUND"
