@@ -1,3 +1,7 @@
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 [[ -f ~/.zplug/init.zsh ]] ||
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 . "$HOME/.zplug/init.zsh"

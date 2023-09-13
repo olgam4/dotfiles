@@ -13,7 +13,6 @@ vim.opt.autoindent = true
 vim.cmd [[ set nocompatible ]]
 vim.cmd [[ set formatoptions-=o ]]
 
-vim.g.gitblame_enabled = 0
 vim.cmd [[ let g:neovide_input_use_logo = v:true ]]
 
 local rt = require 'rust-tools'
@@ -25,3 +24,6 @@ rt.setup({
     end,
   },
 })
+
+vim.filetype.add({ extension = { re = 'reason' }})
+vim.filetype.add({ extension = { rei = 'reason' }})

@@ -18,9 +18,6 @@ require('lazy').setup {
     tag = 'nightly',
   },
 
-  'eandrju/cellular-automaton.nvim',
-  'kyazdani42/nvim-web-devicons',
-
   {
     'nvim-telescope/telescope.nvim',
     dependencies = { { 'nvim-lua/plenary.nvim' } }
@@ -30,13 +27,6 @@ require('lazy').setup {
   'nvim-treesitter/nvim-treesitter-context',
 
   'mg979/vim-visual-multi',
-
-  { 'samodostal/image.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'm00qek/baleia.nvim'
-    }
-  },
 
   {
     'folke/todo-comments.nvim',
@@ -117,8 +107,8 @@ require('lazy').setup {
 
   -- git
   'airblade/vim-gitgutter', -- TODO: setup,
-  { 'TimUntersberger/neogit', dependencies = 'nvim-lua/plenary.nvim' },
-  { 'mbbill/undotree',        cmd = 'UndotreeToggle' },
+  { 'TimUntersberger/neogit',  dependencies = 'nvim-lua/plenary.nvim' },
+  { 'mbbill/undotree',         cmd = 'UndotreeToggle' },
 
   -- lsp
   { 'simrat39/rust-tools.nvim' },

@@ -1,4 +1,4 @@
-local git_commit = function()
+vim.keymap.set('n', 'gcp', function()
   local message = vim.fn.input('Commit message: ')
   if message == '' then
     print('No commit message given. Aborting.')
@@ -7,10 +7,6 @@ local git_commit = function()
   vim.api.nvim_command('! git add -A')
   vim.api.nvim_command('! git commit -m \"' .. message .. '\"')
   vim.api.nvim_command('! git push')
-end
-
-vim.keymap.set('n', 'gcp', function()
-  git_commit()
 end)
 
 local change_font_size = function(size)

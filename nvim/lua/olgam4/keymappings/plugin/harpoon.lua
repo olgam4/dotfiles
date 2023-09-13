@@ -9,5 +9,3 @@ vim.keymap.set('n', '<leader>t4', ':lua require("harpoon.ui").nav_file(4)<cr>')
 vim.keymap.set('n', '<leader>ta', ':lua require("harpoon.mark").add_file()<cr>')
 vim.keymap.set('n', '<leader>ts', ':lua require("harpoon.ui").toggle_quick_menu()<cr>')
 vim.keymap.set('n', '<leader>marks', ':Telescope harpoon marks<cr>')
-
-
