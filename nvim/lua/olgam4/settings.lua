@@ -10,20 +10,10 @@ vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 vim.opt.autoindent = true
 
-vim.cmd [[ set nocompatible ]]
-vim.cmd [[ set formatoptions-=o ]]
+vim.cmd([[ set nocompatible ]])
+vim.cmd([[ set formatoptions-=o ]])
 
-vim.cmd [[ let g:neovide_input_use_logo = v:true ]]
+vim.cmd([[ let g:neovide_input_use_logo = v:true ]])
 
-local rt = require 'rust-tools'
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<Leader>h", rt.hover_actions.hover_actions, { buffer = bufnr })
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})
-
-vim.filetype.add({ extension = { re = 'reason' }})
-vim.filetype.add({ extension = { rei = 'reason' }})
+vim.filetype.add({ extension = { re = 'reason' } })
+vim.filetype.add({ extension = { rei = 'reason' } })
