@@ -13,7 +13,6 @@ yabai -m config window_gap       10     \
                 right_padding    10     \
                 bottom_padding   10     \
                 top_padding      10     \
-                external_bar     all:32:0
 
 
 yabai -m rule --add app="^(Font Book|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
