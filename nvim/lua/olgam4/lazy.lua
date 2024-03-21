@@ -56,6 +56,8 @@ require('lazy').setup({
     end,
   },
 
+  { 'gleam-lang/gleam.vim' },
+
   -- tpope, our god and saviour
   { 'tpope/vim-surround' },
   { 'tpope/vim-fugitive' },
@@ -95,7 +97,6 @@ require('lazy').setup({
   {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    'jay-babu/mason-null-ls.nvim',
     'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -106,24 +107,5 @@ require('lazy').setup({
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
   },
-
-  {
-    'nvimtools/none-ls.nvim',
-    dependencies = 'nvim-lua/plenary.nvim',
-    config = function()
-      local null_ls = require('null-ls')
-      null_ls.setup({
-        sources = {
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.diagnostics.eslint,
-          null_ls.builtins.completion.spell,
-          null_ls.builtins.formatting.prettier,
-          null_ls.builtins.formatting.eslint,
-        },
-      })
-    end,
-  },
 })
 
-require('mason').setup()
-require('mason-lspconfig').setup()

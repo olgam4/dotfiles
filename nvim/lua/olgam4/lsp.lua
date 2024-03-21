@@ -1,8 +1,31 @@
 -- Setup language servers.
+local mason = require('mason')
 local lspconfig = require('lspconfig')
-local mason_null_ls = require('mason-null-ls')
+local mason_lsp_config = require('mason-lspconfig')
 
-mason_null_ls.setup()
+mason.setup()
+mason_lsp_config.setup()
+
+mason_lsp_config.setup_handlers {
+  function(server_name)
+    require("lspconfig")[server_name].setup {}
+  end,
+  ["lua_ls"] = function()
+    lspconfig.lua_ls.setup {
+      settings = {
+        Lua = {
+          runtime = 'LuaJIT',
+          diagnostics = {
+            globals = {
+              'vim'
+            }
+          }
+        }
+      }
+    }
+  end
+}
+
 
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<space>,', vim.diagnostic.goto_prev)
@@ -30,12 +53,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set({ 'n', 'v' }, '<space>a', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<space>r', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format({
-        async = true,
-        filter = function(client)
-          return client.name == 'null-ls'
-        end,
-      })
+      vim.lsp.buf.format { async = true }
     end, opts)
   end,
 })
@@ -48,10 +66,6 @@ cmp.setup({
     expand = function(args)
       vim.fn['vsnip#anonymous'](args.body)
     end,
-  },
-  window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -93,42 +107,3 @@ cmp.setup.cmdline(':', {
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = {
-          'vim',
-          'require',
-        },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-})
-
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-})
-
-lspconfig.cssls.setup({
-  capabilities = capabilities,
-})
-
-lspconfig.eslint.setup({
-  capabilities = capabilities,
-})
-
-lspconfig.rust_analyzer.setup({
-  capabilities = capabilities,
-})
