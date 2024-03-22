@@ -28,6 +28,11 @@ require('lazy').setup({
   },
 
   {
+    'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate"
+  },
+
+  {
     'nvim-telescope/telescope.nvim',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
   },
@@ -56,14 +61,24 @@ require('lazy').setup({
     end,
   },
 
-  { 'gleam-lang/gleam.vim' },
-
   -- tpope, our god and saviour
   { 'tpope/vim-surround' },
   { 'tpope/vim-fugitive' },
   { 'tpope/vim-commentary' },
   { 'tpope/vim-projectionist' }, -- TODO: setup me
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
+  {
+      "Exafunction/codeium.nvim",
+      dependencies = {
+          "nvim-lua/plenary.nvim",
+          "hrsh7th/nvim-cmp",
+      },
+      config = function()
+          require("codeium").setup({
+            enable_chat = true
+          })
+      end
+  },
 
   -- dancing around
   'wellle/targets.vim',

@@ -6,6 +6,8 @@ local mason_lsp_config = require('mason-lspconfig')
 mason.setup()
 mason_lsp_config.setup()
 
+lspconfig.gleam.setup({})
+
 mason_lsp_config.setup_handlers {
   function(server_name)
     require("lspconfig")[server_name].setup {}
@@ -25,7 +27,6 @@ mason_lsp_config.setup_handlers {
     }
   end
 }
-
 
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<space>,', vim.diagnostic.goto_prev)
@@ -77,6 +78,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
+    { name = 'codeium' },
   }, {
     { name = 'buffer' },
   }),
@@ -105,5 +107,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' },
   }),
 })
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
