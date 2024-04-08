@@ -25,6 +25,7 @@ alias ....='cd ../../..'
 alias ls='exa'
 alias useful="open ~/useful"
 alias sketchreset="brew services stop sketchybar && brew services start sketchybar"
+alias python="python3"
 
 function take() {
   mkdir -p "$1" && cd "$1"
@@ -60,7 +61,7 @@ zplug load
 
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-eval "$HOME/.config/zsh/inspirustbot" | cowsay
+eval "$HOME/.config/zsh/inspirustbot" | cowsay -f ~/.config/zsh/minou.cow
 
 eval "$(starship init zsh)"
 
@@ -74,3 +75,10 @@ esac
 
 # opam configuration
 [[ ! -r /Users/mariejosee/.opam/opam-init/init.zsh ]] || source /Users/mariejosee/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# bun completions
+[ -s "/Users/virginierb/.bun/_bun" ] && source "/Users/virginierb/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
