@@ -68,16 +68,13 @@ require('lazy').setup({
   { 'tpope/vim-projectionist' }, -- TODO: setup me
   -- { 'github/copilot.vim' },
   {
-      "Exafunction/codeium.nvim",
-      dependencies = {
-          "nvim-lua/plenary.nvim",
-          "hrsh7th/nvim-cmp",
-      },
-      config = function()
-          require("codeium").setup({
-            enable_chat = true
-          })
-      end
+    'Exafunction/codeium.vim',
+    event = 'BufEnter',
+    config = function()
+      vim.keymap.set('i', '<s-enter>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+      vim.keymap.set('n', '<leader>c', function() return vim.fn['codeium#Chat']() end,
+        { expr = true, silent = true })
+    end,
   },
 
   -- dancing around
@@ -123,4 +120,3 @@ require('lazy').setup({
     'hrsh7th/vim-vsnip',
   },
 })
-
