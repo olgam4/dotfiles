@@ -28,6 +28,13 @@ require('lazy').setup({
   },
 
   {
+    'nvim-tree/nvim-web-devicons', 
+    config = function()
+      require('nvim-web-devicons').setup {}
+    end
+  },
+
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate"
   },

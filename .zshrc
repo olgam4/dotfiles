@@ -22,7 +22,7 @@ eval $(/opt/homebrew/bin/brew shellenv)
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ls='exa'
+alias ls='eza'
 alias useful="open ~/useful"
 alias sketchreset="brew services stop sketchybar && brew services start sketchybar"
 alias python="python3"
