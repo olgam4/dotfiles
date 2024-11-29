@@ -13,3 +13,5 @@ brew install neovide
 brew install skhd
 brew install yabai
 brew install sketchybar
+
+\uF1AF1

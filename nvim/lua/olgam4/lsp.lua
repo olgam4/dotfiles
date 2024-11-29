@@ -12,6 +12,26 @@ mason_lsp_config.setup_handlers {
   function(server_name)
     require("lspconfig")[server_name].setup {}
   end,
+  ["tailwindcss"] = function()
+    lspconfig.tailwindcss.setup {
+      filetypes = { "gleam", "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ" },
+      settings = {
+        tailwindCSS = {
+          experimental = {
+            classRegex = {  
+            "attr\\.class\\(([^)]*)\\)", 
+            }
+          },
+          classAttributes = {
+            "class",
+            "className",
+            "ngClass",
+            "style"
+          }
+        }
+      }
+    }
+  end,
   ["lua_ls"] = function()
     lspconfig.lua_ls.setup {
       settings = {

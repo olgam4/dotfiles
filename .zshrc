@@ -26,6 +26,7 @@ alias ls='eza'
 alias useful="open ~/useful"
 alias sketchreset="brew services stop sketchybar && brew services start sketchybar"
 alias python="python3"
+alias bsh="/opt/homebrew/Cellar/bash/5.2.26/bin/bash"
 
 function take() {
   mkdir -p "$1" && cd "$1"
@@ -82,3 +83,6 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2024-04-09 15:46:48
+export PATH="$PATH:/Users/virginie/.local/bin"

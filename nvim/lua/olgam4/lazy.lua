@@ -15,7 +15,7 @@ require('lazy').setup({
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = 'nvim-tree/nvim-web-devicons',
-    tag = 'nightly',
+    version = '*',
     config = function()
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
@@ -27,10 +27,39 @@ require('lazy').setup({
     end,
   },
 
+
+  {
+    'echasnovski/mini.ai', version = false,
+    config = function()
+      require('mini.ai').setup()
+    end
+  },
+
+  {
+    "mistricky/codesnap.nvim",
+    build = "make",
+    config = function()
+      require("codesnap").setup {
+        code_font_family = 'Liga Hasklug Nerd Font Mono',
+        watermark = "",
+        has_breadcrumbs = true,
+      }
+    end
+  },
+
   {
     'nvim-tree/nvim-web-devicons', 
     config = function()
-      require('nvim-web-devicons').setup {}
+      require('nvim-web-devicons').setup {
+        override = {
+          gleam = {
+            icon = '',
+            color = '#ffaff3',
+            cterm_color = '219',
+            name = 'Gleam',
+          }
+        }
+      }
     end
   },
 
@@ -73,7 +102,6 @@ require('lazy').setup({
   { 'tpope/vim-fugitive' },
   { 'tpope/vim-commentary' },
   { 'tpope/vim-projectionist' }, -- TODO: setup me
-  -- { 'github/copilot.vim' },
   {
     'Exafunction/codeium.vim',
     event = 'BufEnter',
