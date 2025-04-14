@@ -13,22 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    version = '*',
-    config = function()
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-      require('nvim-tree').setup({
-        update_focused_file = {
-          enable = true,
-        },
-      })
-    end,
-  },
-
-
-  {
     'echasnovski/mini.ai', version = false,
     config = function()
       require('mini.ai').setup()
@@ -48,7 +32,7 @@ require('lazy').setup({
   },
 
   {
-    'nvim-tree/nvim-web-devicons', 
+    'nvim-tree/nvim-web-devicons',
     config = function()
       require('nvim-web-devicons').setup {
         override = {
@@ -110,6 +94,16 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>c', function() return vim.fn['codeium#Chat']() end,
         { expr = true, silent = true })
     end,
+  },
+
+  {
+    'stevearc/oil.nvim',
+    dependencies = { { "echasnovski/mini.icons" } },
+    config = function()
+      require('oil').setup({
+        default_file_explorer = true,
+      })
+    end
   },
 
   -- dancing around

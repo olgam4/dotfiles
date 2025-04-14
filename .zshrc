@@ -38,8 +38,6 @@ zplug "wintermi/zsh-rust"
 
 zplug "zsh-users/zsh-syntax-highlighting"
 
-zplug "zimfw/asdf"
-zplug "kiurchv/asdf.plugin.zsh", defer:2
 
 zplug "none9632/zsh-sudo"
 
