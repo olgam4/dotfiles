@@ -1,0 +1,25 @@
+[user]
+	name = Olivier Gamache
+	email = olivier@glo.quebec
+
+[push]
+	autoSetupRemote = True
+
+[pull]
+	rebase = true
+
+[init]
+	defaultBranch = main
+
+[alias]
+	aa=add -A
+	cm=commit -m
+	st=status
+	co=checkout
+	can=commit --amend --no-edit
+	acp=!git aa && git can && git pf
+	pf=push -f
+	throw = "!throw() { git add -A; git commit -m \"$@\"; git push; }; throw"
+	wip = throw wip
+	then = "!if git diff-index --quiet HEAD --; then git rebase --skip; else git rebase --continue; fi"
+	yeet = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
