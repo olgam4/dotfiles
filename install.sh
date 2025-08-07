@@ -76,10 +76,10 @@ install_brew_packages() {
 create_symlinks() {
   echo "--- Creating symbolic links..."
 
-  careful_symlink "$DOFILES_DIR/git" "$CONFIG_DIR/git"
-  careful_symlink "$DOFILES_DIR/nvim" "$CONFIG_DIR/nvim"
+  careful_symlink "$DOTFILES_DIR/git" "$CONFIG_DIR/git"
+  careful_symlink "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
 
-  careful_symlink "$DOFILES_DIR/kitty" "$CONFIG_DIR/kitty"
+  careful_symlink "$DOTFILES_DIR/kitty" "$CONFIG_DIR/kitty"
 
   careful_symlink "$DOTFILES_DIR/starship.toml" "$CONFIG_DIR/starship.toml"
 
