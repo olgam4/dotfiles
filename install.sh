@@ -5,6 +5,8 @@ readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
 readonly DOTFILES_DIR="$HOME/dotfiles"
 readonly CONFIG_DIR="$HOME/.config"
 
+mkdir -p $CONFIG_DIR
+
 # --- Helper Functions ---
 # Checks if a command exists in the current environment
 command_exists () {
