@@ -2,7 +2,8 @@
 
 # --- Configuration Variables ---
 readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
-readonly DOTFILES_DIR="$HOME/.dotfiles"
+readonly DOTFILES_DIR="$HOME/dotfiles"
+readonly CONFIG_DIR="$HOME/.config"
 
 # --- Helper Functions ---
 # Checks if a command exists in the current environment
@@ -59,7 +60,7 @@ install_brew_packages() {
     kitty
     cowsay
     starship
-    exa
+    eza
     fzf
     mask
     ripgrep
@@ -73,14 +74,14 @@ install_brew_packages() {
 create_symlinks() {
   echo "--- Creating symbolic links..."
 
-  careful_symlink "$DOFILES_DIR/git" "$HOME/.config/git"
-  careful_symlink "$DOFILES_DIR/nvim" "$HOME/.config/nvim"
+  careful_symlink "$DOFILES_DIR/git" "$CONFIG_DIR/git"
+  careful_symlink "$DOFILES_DIR/nvim" "$CONFIG_DIR/nvim"
 
-  careful_symlink "$DOFILES_DIR/kitty" "$HOME/.config/kitty"
+  careful_symlink "$DOFILES_DIR/kitty" "$CONFIG_DIR/kitty"
 
-  careful_symlink "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
+  careful_symlink "$DOTFILES_DIR/starship.toml" "$CONFIG_DIR/starship.toml"
 
-  careful_symlink "$DOTFILES_DIR/zsh" "$HOME/.config/zsh"
+  careful_symlink "$DOTFILES_DIR/zsh" "$CONFIG_DIR/zsh"
   careful_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 }
 
