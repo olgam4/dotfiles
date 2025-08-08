@@ -2,10 +2,10 @@
 
 # --- Configuration Variables ---
 readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
-test -n "$EMAIL" && EMAIL="olivier@glo.quebec"
-test -n "$NAME" && NAME="Olivier Gamache"
-test -n "$CONFIG_DIR" && CONFIG_DIR="$HOME/.config"
-test -n "$DOTFILES_DIR" && DOTFILES_DIR="$HOME/dotfiles"
+EMAIL="olivier@glo.quebec"
+NAME="Olivier Gamache"
+CONFIG_DIR="$HOME/.config"
+DOTFILES_DIR="$HOME/dotfiles"
 
 mkdir -p $CONFIG_DIR
 
