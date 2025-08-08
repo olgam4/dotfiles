@@ -7,6 +7,7 @@ test -n "$NAME" && NAME="Olivier Gamache"
 test -n "$CONFIG_DIR" && CONFIG_DIR="$HOME/.config"
 test -n "$DOTFILES_DIR" && DOTFILES_DIR="$HOME/dotfiles"
 
+mkdir -p $CONFIG_DIR
 
 # --- Helper Functions ---
 # Checks if a command exists in the current environment
