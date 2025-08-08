@@ -7,8 +7,6 @@ NAME="Olivier Gamache"
 CONFIG_DIR="$HOME/.config"
 DOTFILES_DIR="$HOME/dotfiles"
 
-mkdir -p $CONFIG_DIR
-
 # --- Helper Functions ---
 # Checks if a command exists in the current environment
 command_exists () {
