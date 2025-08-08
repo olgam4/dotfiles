@@ -36,19 +36,23 @@ install_prerequisites() {
 }
 
 prompt_for_dotfiles_dir() {
-  DOTFILES_DIR=$(gum input --placeholder "Enter the path to your dotfiles directory:" --default "$HOME/dotfiles")
+  DOTFILES_DIR=$(gum input --placeholder "Enter the path to your dotfiles directory:")
+  test -n "$DOTFILES_DIR" && DOTFILES_DIR="$DOTFILES_DIR/dotfiles"
 }
 
 prompt_for_config_dir() {
-  CONFIG_DIR=$(gum input --placeholder "Enter the path to your config directory:" --default "$HOME/.config")
+  CONFIG_DIR=$(gum input --placeholder "Enter the path to your config directory:")
+  test -n "$CONFIG_DIR" && CONFIG_DIR="$CONFIG_DIR/.config"
 }
 
 prompt_for_name() {
-  NAME=$(gum input --placeholder "Enter your name:" --default "Olivier")
+  NAME=$(gum input --placeholder "Enter your name:")
+  test -n "$NAME" && NAME="Olivier Gamache"
 }
 
 prompt_for_email() {
-  EMAIL=$(gum input --placeholder "Enter your email address:" --default "olgam4@gmail.com")
+  EMAIL=$(gum input --placeholder "Enter your email address:")
+  test -n "$EMAIL" && EMAIL="olivier@glo.quebec"
 }
 
 # --- 2. Clone or Update Dotfiles Repository ---
