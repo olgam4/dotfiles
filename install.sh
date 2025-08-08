@@ -2,8 +2,8 @@
 
 # --- Configuration Variables ---
 readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
-readonly DOTFILES_DIR="$HOME/dotfiles"
-readonly CONFIG_DIR="$HOME/.config"
+DOTFILES_DIR="$HOME/dotfiles"
+CONFIG_DIR="$HOME/.config"
 
 mkdir -p $CONFIG_DIR
 
@@ -37,6 +37,24 @@ install_prerequisites() {
   fi
 }
 
+prompt_for_dotfiles_dir() {
+  gum input --placeholder "Enter the path to your dotfiles directory:" --default "$HOME/dotfiles" > $DOTFILES_DIR
+}
+
+prompt_for_config_dir() {
+  gum input --placeholder "Enter the path to your config directory:" --default "$HOME/.config" > $CONFIG_DIR
+}
+
+prompt_for_name() {
+  gum input --placeholder "Enter your name:" --default "Olivier Gamache" > $NAME
+  echo "Hello, $NAME!"
+}
+
+prompt_for_email() {
+  gum input --placeholder "Enter your email address:" --default "olivier@glo.quebec" > $EMAIL
+  echo "Your email address is $EMAIL."
+}
+
 # --- 2. Clone or Update Dotfiles Repository ---
 # Clones the repository if it doesn't exist, or pulls the latest changes if it does.
 clone_or_update_repo() {
@@ -67,6 +85,7 @@ install_brew_packages() {
     mask
     ripgrep
     zoxide
+    gum
   )
   brew install "${packages[@]}"
 }
@@ -106,11 +125,23 @@ careful_symlink() {
   ln -s "$source" "$destination"
 }
 
+update_git_config() {
+  echo "--- Updating git config..."
+
+  git config --global user.name "$NAME"
+  git config --global user.email "$EMAIL"
+}
+
 # --- 5. Main Execution Flow ---
 echo "🚀 Starting dotfiles installation..."
 install_prerequisites
-clone_or_update_repo
 install_brew_packages
+prompt_for_dotfiles_dir
+prompt_for_config_dir
+prompt_for_name
+prompt_for_email
+clone_or_update_repo
+update_git_config
 create_symlinks
 
 echo "✅ Dotfiles installation complete!"
