@@ -35,26 +35,6 @@ install_prerequisites() {
   fi
 }
 
-prompt_for_dotfiles_dir() {
-  DOTFILES_DIR=$(gum input --placeholder "Enter the path to your dotfiles directory:")
-  test -n "$DOTFILES_DIR" && DOTFILES_DIR="$DOTFILES_DIR/dotfiles"
-}
-
-prompt_for_config_dir() {
-  CONFIG_DIR=$(gum input --placeholder "Enter the path to your config directory:")
-  test -n "$CONFIG_DIR" && CONFIG_DIR="$CONFIG_DIR/.config"
-}
-
-prompt_for_name() {
-  NAME=$(gum input --placeholder "Enter your name:")
-  test -n "$NAME" && NAME="Olivier Gamache"
-}
-
-prompt_for_email() {
-  EMAIL=$(gum input --placeholder "Enter your email address:")
-  test -n "$EMAIL" && EMAIL="olivier@glo.quebec"
-}
-
 # --- 2. Clone or Update Dotfiles Repository ---
 # Clones the repository if it doesn't exist, or pulls the latest changes if it does.
 clone_or_update_repo() {
@@ -136,10 +116,14 @@ update_git_config() {
 echo "🚀 Starting dotfiles installation..."
 install_prerequisites
 install_brew_packages
-prompt_for_dotfiles_dir
-prompt_for_config_dir
-prompt_for_name
-prompt_for_email
+DOTFILES_DIR=$(gum input --placeholder "Enter the path to your dotfiles directory:")
+test -n "$DOTFILES_DIR" && DOTFILES_DIR="$DOTFILES_DIR/dotfiles"
+CONFIG_DIR=$(gum input --placeholder "Enter the path to your config directory:")
+test -n "$CONFIG_DIR" && CONFIG_DIR="$CONFIG_DIR/.config"
+NAME=$(gum input --placeholder "Enter your name:")
+test -n "$NAME" && NAME="Olivier Gamache"
+EMAIL=$(gum input --placeholder "Enter your email address:")
+test -n "$EMAIL" && EMAIL="olivier@glo.quebec"
 clone_or_update_repo
 update_git_config
 create_symlinks
