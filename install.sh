@@ -2,8 +2,11 @@
 
 # --- Configuration Variables ---
 readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
-DOTFILES_DIR="$HOME/dotfiles"
-CONFIG_DIR="$HOME/.config"
+test -n "$EMAIL" && EMAIL="olivier@glo.quebec"
+test -n "$NAME" && NAME="Olivier Gamache"
+test -n "$CONFIG_DIR" && CONFIG_DIR="$HOME/.config"
+test -n "$DOTFILES_DIR" && DOTFILES_DIR="$HOME/dotfiles"
+
 
 # --- Helper Functions ---
 # Checks if a command exists in the current environment
@@ -116,14 +119,6 @@ update_git_config() {
 echo "🚀 Starting dotfiles installation..."
 install_prerequisites
 install_brew_packages
-DOTFILES_DIR=$(gum input --placeholder "Enter the path to your dotfiles directory:")
-test -n "$DOTFILES_DIR" && DOTFILES_DIR="$DOTFILES_DIR/dotfiles"
-CONFIG_DIR=$(gum input --placeholder "Enter the path to your config directory:")
-test -n "$CONFIG_DIR" && CONFIG_DIR="$CONFIG_DIR/.config"
-NAME=$(gum input --placeholder "Enter your name:")
-test -n "$NAME" && NAME="Olivier Gamache"
-EMAIL=$(gum input --placeholder "Enter your email address:")
-test -n "$EMAIL" && EMAIL="olivier@glo.quebec"
 clone_or_update_repo
 update_git_config
 create_symlinks
