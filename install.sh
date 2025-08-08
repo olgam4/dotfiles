@@ -5,8 +5,6 @@ readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
 DOTFILES_DIR="$HOME/dotfiles"
 CONFIG_DIR="$HOME/.config"
 
-mkdir -p $CONFIG_DIR
-
 # --- Helper Functions ---
 # Checks if a command exists in the current environment
 command_exists () {
@@ -38,21 +36,19 @@ install_prerequisites() {
 }
 
 prompt_for_dotfiles_dir() {
-  gum input --placeholder "Enter the path to your dotfiles directory:" --default "$HOME/dotfiles" > DOTFILES_DIR
+  DOTFILES_DIR=$(gum input --placeholder "Enter the path to your dotfiles directory:" --default "$HOME/dotfiles")
 }
 
 prompt_for_config_dir() {
-  gum input --placeholder "Enter the path to your config directory:" --default "$HOME/.config" > CONFIG_DIR
+  CONFIG_DIR=$(gum input --placeholder "Enter the path to your config directory:" --default "$HOME/.config")
 }
 
 prompt_for_name() {
-  gum input --placeholder "Enter your name:" --default "Olivier Gamache" > NAME
-  echo "Hello, $NAME!"
+  NAME=$(gum input --placeholder "Enter your name:" --default "Olivier")
 }
 
 prompt_for_email() {
-  gum input --placeholder "Enter your email address:" --default "olivier@glo.quebec" > EMAIL
-  echo "Your email address is $EMAIL."
+  EMAIL=$(gum input --placeholder "Enter your email address:" --default "olgam4@gmail.com")
 }
 
 # --- 2. Clone or Update Dotfiles Repository ---
