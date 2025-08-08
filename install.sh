@@ -38,20 +38,20 @@ install_prerequisites() {
 }
 
 prompt_for_dotfiles_dir() {
-  gum input --placeholder "Enter the path to your dotfiles directory:" --default "$HOME/dotfiles" > $DOTFILES_DIR
+  gum input --placeholder "Enter the path to your dotfiles directory:" --default "$HOME/dotfiles" > DOTFILES_DIR
 }
 
 prompt_for_config_dir() {
-  gum input --placeholder "Enter the path to your config directory:" --default "$HOME/.config" > $CONFIG_DIR
+  gum input --placeholder "Enter the path to your config directory:" --default "$HOME/.config" > CONFIG_DIR
 }
 
 prompt_for_name() {
-  gum input --placeholder "Enter your name:" --default "Olivier Gamache" > $NAME
+  gum input --placeholder "Enter your name:" --default "Olivier Gamache" > NAME
   echo "Hello, $NAME!"
 }
 
 prompt_for_email() {
-  gum input --placeholder "Enter your email address:" --default "olivier@glo.quebec" > $EMAIL
+  gum input --placeholder "Enter your email address:" --default "olivier@glo.quebec" > EMAIL
   echo "Your email address is $EMAIL."
 }
 
