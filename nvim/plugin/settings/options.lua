@@ -6,7 +6,6 @@ vim.opt.smartcase = true
 
 vim.opt.swapfile = false
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }
 vim.opt.wildoptions = { "fuzzy", "pum" }
 
 vim.opt.number = true

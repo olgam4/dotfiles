@@ -67,6 +67,7 @@ install_brew_packages() {
     mask
     neovim
     ripgrep
+    rustup
     starship
     zoxide
   )
@@ -122,6 +123,7 @@ install_brew_packages
 clone_or_update_repo
 update_git_config
 create_symlinks
+rustup-init -y
 
 echo "✅ Dotfiles installation complete!"
 echo "✨ Please restart your terminal for all changes to take effect."

@@ -57,6 +57,7 @@ alias take='take_func'
 alias ssh='TERM="xterm-256color" kitty +kitten ssh'
 
 source <(fzf --zsh)
+source "$HOME/.cargo/env"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

@@ -4,15 +4,6 @@ vim.lsp.enable({ "lua_ls", "gleam", "bash_ls", "cssls", "jsonls", "superhtml", "
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-
-    vim.lsp.completion.enable(true, client.id, ev.buf, {
-      autotrigger = true,
-      convert = function(item)
-        return { abbr = item.label:gsub('%b()', '') }
-      end,
-    })
-
     vim.keymap.set('n', '<space>,', function()
       vim.diagnostic.jump({ count = 1 })
     end)
