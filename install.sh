@@ -56,18 +56,19 @@ clone_or_update_repo() {
 install_brew_packages() {
   echo "--- Installing Homebrew packages..."
   local -a packages=(
-    git
-    neovim
     bat
-    kitty
     cowsay
-    starship
     eza
     fzf
-    mask
-    ripgrep
-    zoxide
+    git
     gum
+    kitty
+    lolcat
+    mask
+    neovim
+    ripgrep
+    starship
+    zoxide
   )
   brew install "${packages[@]}"
 }

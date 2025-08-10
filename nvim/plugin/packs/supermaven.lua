@@ -5,7 +5,7 @@ vim.pack.add({ {
 require 'supermaven-nvim'.setup {
   keymaps = {
     accept_suggestion = "<s-enter>",
-    accept_word = "<c-j>",
+    accept_word = "<c-w>",
   },
-  disable_keymaps = false, -- disables built in keymaps for more manual control
+  disable_keymaps = false,
 }

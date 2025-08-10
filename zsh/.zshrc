@@ -1,4 +1,4 @@
-eval "$HOME/.config/zsh/inspirustbot" | cowsay -f ~/.config/zsh/minou.cow
+eval "$HOME/.config/zsh/inspirustbot" | cowsay -f ~/.config/zsh/minou.cow | lolcat --spread 1.0
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
