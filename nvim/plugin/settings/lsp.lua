@@ -1,13 +1,5 @@
-vim.lsp.enable({ "lua_ls", "gleam", "bash_ls", "cssls", "jsonls", "html", "css_variables", "cssmodules_ls",
+vim.lsp.enable({ "lua_ls", "gleam", "bash_ls", "cssls", "jsonls", "superhtml", "css_variables", "cssmodules_ls",
   "postgres_lsp", "ts_ls" })
-
-vim.keymap.set('n', '<space>,', function()
-  vim.diagnostic.jump({ count = 1 })
-end)
-vim.keymap.set('n', '<space>.', function()
-  vim.diagnostic.jump({ count = -1 })
-end)
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -20,6 +12,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         return { abbr = item.label:gsub('%b()', '') }
       end,
     })
+
+    vim.keymap.set('n', '<space>,', function()
+      vim.diagnostic.jump({ count = 1 })
+    end)
+    vim.keymap.set('n', '<space>.', function()
+      vim.diagnostic.jump({ count = -1 })
+    end)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', '<space>Dc', vim.lsp.buf.declaration, opts)

@@ -1,5 +1,3 @@
-vim.opt.swapfile = false
-
 local undodir = vim.fn.expand("~/.vim/undodir")
 
 vim.opt.undofile = true

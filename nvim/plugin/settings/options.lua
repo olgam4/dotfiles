@@ -4,6 +4,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.swapfile = false
+
 vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }
 vim.opt.wildoptions = { "fuzzy", "pum" }
 
