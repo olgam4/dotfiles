@@ -1,0 +1,17 @@
+brew "bat"
+brew "cowsay"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "git"
+brew "gum"
+brew "kitty"
+brew "lolcat"
+brew "mask"
+brew "ripgrep"
+brew "rustup"
+brew "starship"
+brew "tree-sitter-cli"
+brew "zoxide"
+
+brew "neovim", args: ["fetch-HEAD"]
