@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+readonly DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
+EMAIL="olivier@glo.quebec"
+NAME="Olivier Gamache"
+CONFIG_DIR="$HOME/.config"
+DOTFILES_DIR="$HOME/dotfiles"
+
 command_exists () {
   command -v "$1" >/dev/null 2>&1
 }
@@ -55,3 +61,15 @@ fi
 
 echo 'Getting brew packages...'
 brew bundle
+
+echo "--- Creating symbolic links..."
+
+careful_symlink "$DOTFILES_DIR/git" "$CONFIG_DIR/git"
+careful_symlink "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
+
+careful_symlink "$DOTFILES_DIR/kitty" "$CONFIG_DIR/kitty"
+
+careful_symlink "$DOTFILES_DIR/starship.toml" "$CONFIG_DIR/starship.toml"
+
+careful_symlink "$DOTFILES_DIR/zsh" "$CONFIG_DIR/zsh"
+careful_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
