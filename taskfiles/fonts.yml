@@ -2,7 +2,7 @@
 version: 3
 
 vars:
-  BASE_URL: 'https://github.com/olgam4/ligahasklig/raw/main/'
+  BASE_URL: '19   │ curl -fsSL https://raw.githubusercontent.com/olgam4/ligahasklig/main/'
   FONTS:
     - 'LigaHasklugNerdFontMono-Regular.otf'
 

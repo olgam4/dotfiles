@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "gleam", "bash_ls", "cssls", "jsonls", "superhtml", "css_variables", "cssmodules_ls",
+vim.lsp.enable({ "lua_ls", "gleam", "bash_ls", "cssls", "jsonls", "superhtml", "css_variables", "cssmodules_ls", "yamlls",
   "postgres_lsp", "ts_ls" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
