@@ -45,3 +45,16 @@ vim.keymap.set({ 'n', 'v', 'x' }, 'J', '5j')
 vim.keymap.set({ 'n', 'v', 'x' }, 'K', '5k')
 -- set join keybind to another keymap
 vim.keymap.set('n', '<leader>j', "mpJ'p")
+
+-- autocomplete
+vim.keymap.set('i', '<c-p>', '<c-x><c-o>')
+-- use tab for menunavigation
+vim.keymap.set('i', '<tab>', function()
+  return vim.fn.pumvisible() == 1 and '<c-n>' or '<tab>'
+end, { expr = true })
+vim.keymap.set('i', '<s-tab>', function()
+  return vim.fn.pumvisible() == 1 and '<c-p>' or '<s-tab>'
+end, { expr = true })
+vim.keymap.set('i', '<enter>', function()
+  return vim.fn.pumvisible() == 1 and '<c-y>' or '<enter>'
+end, { expr = true })

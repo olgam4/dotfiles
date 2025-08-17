@@ -34,6 +34,7 @@ alias ls='eza'
 alias lt='eza -T'
 alias cat='bat'
 alias cd='z'
+alias f='fd'
 
 alias emoji="~/.config/zsh/emoji2utf16"
 

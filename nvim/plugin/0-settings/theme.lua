@@ -1,7 +1,3 @@
-vim.pack.add({ {
-  src = 'https://github.com/rebelot/kanagawa.nvim',
-} })
-
 vim.opt.termguicolors = true
 require('kanagawa').setup({
   overrides = function(colors)

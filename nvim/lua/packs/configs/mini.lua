@@ -1,27 +1,3 @@
-vim.pack.add({
-  {
-    src = 'https://github.com/echasnovski/mini-git',
-  },
-  {
-    src = 'https://github.com/echasnovski/mini.diff',
-  },
-  {
-    src = 'https://github.com/echasnovski/mini.icons',
-  },
-  {
-    src = 'https://github.com/echasnovski/mini.ai',
-  },
-  {
-    src = 'https://github.com/echasnovski/mini.files',
-  },
-  {
-    src = 'https://github.com/echasnovski/mini.surround',
-  },
-  {
-    src = 'https://github.com/echasnovski/mini.statusline',
-  },
-})
-
 local mini_diff_config = {}
 
 -- same as in defalult, but prefixed with `g` to avoid conflicts

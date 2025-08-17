@@ -59,19 +59,22 @@ install_brew_packages() {
     bat
     cowsay
     eza
+    fd
     fzf
     git
     gum
     kitty
     lolcat
     mask
-    neovim
     ripgrep
     rustup
     starship
+    tree-sitter-cli
     zoxide
   )
   brew install "${packages[@]}"
+
+  brew install --fetch-HEAD neovim
 }
 
 # --- 4. Create Symbolic Links ---

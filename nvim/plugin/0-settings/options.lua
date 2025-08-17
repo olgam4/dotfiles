@@ -4,8 +4,6 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.swapfile = false
-
 vim.opt.wildoptions = { "fuzzy", "pum" }
 
 vim.opt.number = true

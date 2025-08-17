@@ -1,9 +1,3 @@
-vim.pack.add({
-  { src = 'https://github.com/mrjones2014/smart-splits.nvim' },
-  -- TODO until nvim 0.12 is released and lets us run build commands,
-  -- we need to manually run './kitty/install-kittens.bash' in the install repo
-})
-
 -- resizing splits
 -- these keymaps will also accept a range,
 -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
