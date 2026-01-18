@@ -1,4 +1,5 @@
 vim.opt.termguicolors = true
+
 require('kanagawa').setup({
   overrides = function(colors)
     local theme = colors.theme

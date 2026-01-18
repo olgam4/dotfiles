@@ -1,11 +1,4 @@
-require 'nvim-treesitter'.setup {
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  }
-}
-
-require 'nvim-treesitter'.install {
+local filetypes = {
   'bash',
   'comment',
   'css',
@@ -24,11 +17,26 @@ require 'nvim-treesitter'.install {
   'markdown',
   'markdown_inline',
   'toml',
+  'typescript',
   'vim',
   'vimdoc',
   'yaml',
 }
 
+require 'nvim-treesitter'.install{ filetypes }
+
 vim.filetype.add({
   extension = { dj = 'djot' }
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function()
+    local ft = vim.bo.filetype
+    for _, filetype in ipairs(filetypes) do
+      if filetype == ft then
+        vim.treesitter.start()
+      end
+    end
+  end,
 })

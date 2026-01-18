@@ -69,5 +69,3 @@ setopt NO_BEEP
 
 # Created by `pipx` on 2025-09-28 03:34:07
 export PATH="$PATH:/Users/alysondube/.local/bin"
-
-[ -f "/Users/alysondube/.ghcup/env" ] && . "/Users/alysondube/.ghcup/env" # ghcup-env
