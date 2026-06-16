@@ -1,0 +1,37 @@
+" ghtml syntax additions on top of HTML treesitter
+" Highlights @import, @params, control flow, expressions, and PascalCase components
+
+if exists('b:current_syntax')
+  finish
+endif
+
+" Directives: @import(...), @params(...), @style(...), @page-style(...), @script(...), @type(...)
+syntax match ghtmlDirective /@import\|@params\|@page-style\|@style\|@script\|@type/ containedin=ALL
+highlight link ghtmlDirective PreProc
+
+" Control flow blocks: {#if}, {:else}, {/if}, {#each}, {/each}, {#case}, {/case}
+syntax match ghtmlControl /{\zs#if\|:else\|\/if\|#each\|\/each\|#case\|\/case\|:.\{-}\ze}/ containedin=ALL
+highlight link ghtmlControl Keyword
+
+" Control flow braces
+syntax match ghtmlControlBrace /{\ze\(#\|:\|\/\)/ containedin=ALL
+syntax match ghtmlControlBrace /\(#if\|:else\|\/if\|#each\|\/each\|#case\|\/case\|:.\{-}\)\zs}/ containedin=ALL
+highlight link ghtmlControlBrace Keyword
+
+" Expressions: {expr} (but not control flow)
+syntax region ghtmlExpr start=/{[^#:\/!>]/ end=/}/ containedin=ALL contains=ghtmlExprBrace
+syntax match ghtmlExprBrace /[{}]/ contained
+highlight link ghtmlExpr Identifier
+highlight link ghtmlExprBrace Delimiter
+
+" Raw node expressions: {>expr}
+syntax region ghtmlRawExpr start=/{>/ end=/}/ containedin=ALL contains=ghtmlRawExprMarker
+syntax match ghtmlRawExprMarker /{>/ contained
+highlight link ghtmlRawExpr Special
+highlight link ghtmlRawExprMarker Special
+
+" PascalCase component tags: <ComponentName or </ComponentName
+syntax match ghtmlComponent /<\/\?\zs[A-Z][A-Za-z0-9]*/ containedin=ALL
+highlight link ghtmlComponent Type
+
+let b:current_syntax = 'ghtml'

@@ -26,7 +26,10 @@ local filetypes = {
 require 'nvim-treesitter'.install{ filetypes }
 
 vim.filetype.add({
-  extension = { dj = 'djot' }
+  extension = {
+    dj = 'djot',
+    ghtml = 'ghtml',
+  }
 })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -38,5 +41,14 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.treesitter.start()
       end
     end
+  end,
+})
+
+-- ghtml: use custom tree-sitter parser with Gleam + HTML injections
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'ghtml',
+  callback = function()
+    vim.treesitter.start(0, 'ghtml')
+    vim.bo.commentstring = '<!-- %s -->'
   end,
 })

@@ -21,6 +21,8 @@
 	pf=push -f
 	throw = "!throw() { git add -A; git commit -m \"$@\"; git push; }; throw"
 	wip = throw wip
+	done = !git co main && git pull origin main && git yeet
 	rebase-root = rebase --root
 	then = "!if git diff-index --quiet HEAD --; then git rebase --skip; else git rebase --continue; fi"
 	yeet = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+
