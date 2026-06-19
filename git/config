@@ -25,4 +25,5 @@
 	rebase-root = rebase --root
 	then = "!if git diff-index --quiet HEAD --; then git rebase --skip; else git rebase --continue; fi"
 	yeet = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+	sprout = "!f() { git checkout -b \"$1\" && git push; }; f"
 
