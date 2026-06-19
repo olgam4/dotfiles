@@ -8,6 +8,25 @@
 [pull]
 	rebase = true
 
+[fetch]
+	prune = true
+
+[rerere]
+	enabled = true
+	autoUpdate = true
+
+[branch]
+	sort = -committerdate
+
+[column]
+	ui = auto
+
+[diff]
+	colorMoved = default
+
+[help]
+	autocorrect = prompt
+
 [init]
 	defaultBranch = main
 
