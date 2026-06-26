@@ -17,6 +17,7 @@ local filetypes = {
   'markdown',
   'markdown_inline',
   'toml',
+  'tsx',
   'typescript',
   'vim',
   'vimdoc',
