@@ -30,6 +30,7 @@ vim.filetype.add({
   extension = {
     dj = 'djot',
     ghtml = 'ghtml',
+    tsrx = 'tsx',
   }
 })
 
