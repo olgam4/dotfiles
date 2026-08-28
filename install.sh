@@ -1,64 +1,50 @@
-#!/bin/zsh
+#!/bin/sh
 
 # DETECT OS
 # Shamelessly copied from stackoverflow:
 # https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
 # =================================================================================
-lowercase() {
-  echo "$1" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
-}
+DOTFILES_REPO="https://github.com/olgam4/dotfiles.git"
+DOTFILES_DIR="$HOME/dotfiles"
 
-OS="$(lowercase "$(uname)")"
+OS="$(uname -s | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz')"
 KERNEL="$(uname -r)"
 MACH="$(uname -m)"
 
-if [ "${OS}" = "darwin" ]; then
+if [ "$OS" = "darwin" ]; then
   OS='mac'
-else
-  OS="$(uname)"
-  if [ "${OS}" = "Linux" ]; then
-    if [ -f /etc/debian_version ]; then
-      DISTRO_BASE='debian'
-      DIST=$(grep '^DISTRIB_ID' </etc/lsb-release | awk -F= '{ print $2 }')
-    fi
-    if [ -f /etc/UnitedLinux-release ]; then
-      DIST="${DIST}[$(tr "\n" ' ' </etc/UnitedLinux-release | sed s/VERSION.*//)]"
-    fi
-    OS="$(lowercase "$OS")"
-    readonly OS
-    readonly DIST
-    readonly DISTRO_BASE
-    readonly KERNEL
-    readonly MACH
-  fi
-
+elif [ -f /etc/fedora-release ]; then
+  OS='fedora'
 fi
 
 echo
 echo "==========================================="
 echo "$OS"
-echo "$DISTRO_BASE"
-echo "$DIST"
 echo "$KERNEL"
 echo "$MACH"
 echo "==========================================="
 echo
 
+echo '--- Cloning or updating dotfiles repository...'
+if [ -d "$DOTFILES_DIR/.git" ]; then
+  echo "  - Dotfiles directory found. Pulling latest changes..."
+  git -C "$DOTFILES_DIR" pull --rebase || true
+else
+  echo "  - Dotfiles directory not found. Cloning..."
+  git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+fi
+cd "$DOTFILES_DIR"
+
+. ./bin/utils.sh
+
 echo 'Installing shared steps...'
-./installer/shared.sh
-
-if [[ $OS = 'mac' ]]; then
+if [ "$OS" = 'mac' ]; then
   echo 'macOS detected'
-  ./installer/mac-setup.sh
+  zsh ./installer/mac-setup.sh
+elif [ "$OS" = 'fedora' ]; then
+  echo 'Fedora detected'
+  sh ./installer/fedora-setup.sh
+else
+  echo "Unsupported OS: $OS" >&2
+  exit 1
 fi
-
-if [[ ! -f ~/.local/bin/task ]]; then
-  # Install task
-  mkdir -p ~/.local/bin
-  sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
-fi
-
-export PATH="$PATH:$HOME/.local/bin"
-
-# Run task
-task install "$@"
